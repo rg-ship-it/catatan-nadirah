@@ -79,16 +79,12 @@
       opacity:.5;
       mix-blend-mode: screen;
     }
-    @keyframes fall{
-      to{ transform: translateY(115vh) rotate(0deg); }
-    }
+    @keyframes fall{ to{ transform: translateY(115vh) rotate(0deg); } }
     @keyframes sway{
       0%,100%{ margin-left: 0px; }
       50%{ margin-left: var(--mx); }
     }
-    @keyframes spin{
-      to{ rotate: 360deg; }
-    }
+    @keyframes spin{ to{ rotate: 360deg; } }
 
     /* ===== Layout ===== */
     .wrap{max-width:1100px;margin:0 auto;position:relative;z-index:1;display:grid;gap:16px}
@@ -117,7 +113,6 @@
       letter-spacing:.5px;
       font-weight: 900 !important;
     }
-    .brand p{margin:4px 0 0;font-size:12px;color:rgba(0,0,0,.75);font-weight:900 !important}
 
     .actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
     button{
@@ -236,15 +231,9 @@
       vertical-align: top;
       font-weight: 900 !important;
     }
-    tbody tr:nth-child(even) td{
-      background: rgba(255,255,255,.35);
-    }
-    tr.tint-in td{
-      background: linear-gradient(145deg, rgba(55,255,178,.20), rgba(255,255,255,.20));
-    }
-    tr.tint-out td{
-      background: linear-gradient(145deg, rgba(255,90,90,.20), rgba(255,255,255,.20));
-    }
+    tbody tr:nth-child(even) td{ background: rgba(255,255,255,.35); }
+    tr.tint-in td{ background: linear-gradient(145deg, rgba(55,255,178,.20), rgba(255,255,255,.20)); }
+    tr.tint-out td{ background: linear-gradient(145deg, rgba(255,90,90,.20), rgba(255,255,255,.20)); }
 
     .tag{
       display:inline-block;
@@ -267,11 +256,7 @@
       color:#210000;
     }
 
-    .money{
-      font-variant-numeric: tabular-nums;
-      font-weight: 900 !important;
-      font-size: 14px;
-    }
+    .money{ font-variant-numeric: tabular-nums; font-weight: 900 !important; font-size: 14px; }
 
     .ops{display:flex;gap:6px;flex-wrap:wrap}
     .ops button{
@@ -409,21 +394,45 @@
     </div>
   </div>
 
-  <input id="filePick" type="file" accept="application/json" hidden />
-
   <script>
-    // ========= Petals (bunga merah jatuh) =========
+    // ===================== 1) API URL (WAJIB GANTI) =====================
+    const API_URL = "https://script.google.com/macros/s/AKfycbzdVpb3mmZ-8ZZKR6vzyh3z26OHhfXx1dpsTVdErmYdgYej-XtQoR15n-ChQVY4xb4hSQ/exec"; // tempel URL web app kamu di sini
+
+    async function apiLoad(){
+      const res = await fetch(API_URL);
+      const json = await res.json();
+      if(!json.ok) throw new Error("API load gagal");
+      return (json.data || []).map(x => ({
+        id: String(x.id || ""),
+        date: String(x.date || ""),
+        type: String(x.type || "in"),
+        category: String(x.category || ""),
+        desc: String(x.desc || ""),
+        amount: Number(x.amount || 0),
+        createdAt: Number(x.createdAt || Date.now())
+      }));
+    }
+
+    async function apiAdd(t){
+      await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(t)
+      });
+    }
+
+    // ===================== 2) Petals Background =====================
     const layer = document.getElementById("petalLayer");
 
     function spawnPetal(){
       const p = document.createElement("div");
       p.className = "petal";
-      const left = Math.random() * 100;                 // vw
-      const size = 10 + Math.random() * 18;             // px
-      const dur = 7 + Math.random() * 10;               // s
-      const sway = 2.2 + Math.random() * 3.5;           // s
-      const spin = 2.8 + Math.random() * 5.0;           // s
-      const mx = (-40 + Math.random() * 80) + "px";     // sway distance
+      const left = Math.random() * 100;
+      const size = 10 + Math.random() * 18;
+      const dur = 7 + Math.random() * 10;
+      const sway = 2.2 + Math.random() * 3.5;
+      const spin = 2.8 + Math.random() * 5.0;
+      const mx = (-40 + Math.random() * 80) + "px";
 
       p.style.left = left + "vw";
       p.style.width = size + "px";
@@ -432,18 +441,15 @@
       p.style.setProperty("--sway", sway + "s");
       p.style.setProperty("--spin", spin + "s");
       p.style.setProperty("--mx", mx);
-
       p.style.opacity = (0.45 + Math.random() * 0.45).toFixed(2);
+
       layer.appendChild(p);
       setTimeout(() => p.remove(), (dur + 2) * 1000);
     }
+    setInterval(spawnPetal, 260);
 
-    const PETAL_RATE_MS = 260; // makin kecil makin rame
-    setInterval(spawnPetal, PETAL_RATE_MS);
-
-    // ========= Finance Doc =========
-    const KEY = "doc_parfum_tx_v2_gold_petals";
-    let tx = load();
+    // ===================== 3) App Logic (dari Sheet, bukan localStorage) =====================
+    let tx = [];
 
     const elDate = document.getElementById("date");
     const elType = document.getElementById("type");
@@ -460,21 +466,27 @@
     const elQ = document.getElementById("q");
     const elFilterType = document.getElementById("filterType");
 
-    const filePick = document.getElementById("filePick");
-
     initDefaults();
-    render();
+
+    // load awal dari Google Sheets
+    (async () => {
+      try{
+        tx = await apiLoad();
+      }catch(e){
+        console.log(e);
+        alert("Gagal ambil data dari Google Sheets. Pastikan API_URL sudah benar & deployment akses 'Siapa saja'.");
+        tx = [];
+      }
+      render();
+    })();
 
     document.getElementById("btnAdd").addEventListener("click", addFromForm);
     document.getElementById("btnQuickIn").addEventListener("click", () => quickAdd("in"));
     document.getElementById("btnQuickOut").addEventListener("click", () => quickAdd("out"));
 
+    // Reset (sementara reset lokal tampilan saja, hapus global butuh API delete)
     document.getElementById("btnReset").addEventListener("click", () => {
-      if(confirm("Yakin reset semua data? Ini tidak bisa dibatalkan.")){
-        tx = [];
-        save();
-        render();
-      }
+      alert("Reset global (hapus semua data di Sheets) belum dibuat. Kalau mau, aku bisa tambahkan fitur reset global.");
     });
 
     elQ.addEventListener("input", render);
@@ -504,20 +516,7 @@
       return Math.random().toString(16).slice(2) + Date.now().toString(16);
     }
 
-    function load(){
-      try{
-        const raw = localStorage.getItem(KEY);
-        if(!raw) return [];
-        const parsed = JSON.parse(raw);
-        return Array.isArray(parsed) ? parsed : [];
-      }catch{ return []; }
-    }
-
-    function save(){
-      localStorage.setItem(KEY, JSON.stringify(tx));
-    }
-
-    function addFromForm(){
+    async function addFromForm(){
       const date = elDate.value || toDateInputValue(new Date());
       const type = elType.value;
       const category = normalize(elCat.value);
@@ -533,12 +532,23 @@
         elAmt.focus(); return;
       }
 
-      tx.unshift({ id: uid(), date, type, category, desc, amount, createdAt: Date.now() });
-      save();
+      const t = { id: uid(), date, type, category, desc, amount, createdAt: Date.now() };
+
+      // tampilkan cepat di UI
+      tx.unshift(t);
+      render();
+
+      // simpan ke Sheets
+      try{
+        await apiAdd(t);
+      }catch(e){
+        console.log(e);
+        alert("Gagal simpan ke Google Sheets. Cek API_URL / izin akses.");
+      }
+
       elAmt.value = "";
       elDesc.value = "";
       elCat.focus();
-      render();
     }
 
     function quickAdd(type){
@@ -546,48 +556,27 @@
       elAmt.focus();
     }
 
+    // belum ada delete/update global (butuh endpoint tambahan)
     function removeTx(id){
-      if(!confirm("Hapus transaksi ini?")) return;
-      tx = tx.filter(t => t.id !== id);
-      save();
-      render();
+      alert("Hapus global belum aktif (butuh API delete). Kalau mau, aku aktifkan.");
     }
-
     function editTx(id){
-      const t = tx.find(x => x.id === id);
-      if(!t) return;
-
-      const newDate = prompt("Tanggal (YYYY-MM-DD):", t.date) ?? t.date;
-      const newType = prompt("Jenis (in/out):", t.type) ?? t.type;
-      const newCat  = prompt("Kategori:", t.category) ?? t.category;
-      const newDesc = prompt("Deskripsi:", t.desc) ?? t.desc;
-      const newAmt  = prompt("Nominal (angka):", String(t.amount)) ?? String(t.amount);
-
-      const amtNum = Number(newAmt);
-      if(!newCat.trim()){ alert("Kategori tidak boleh kosong."); return; }
-      if(!(newType === "in" || newType === "out")){ alert("Jenis harus 'in' atau 'out'."); return; }
-      if(!amtNum || amtNum <= 0){ alert("Nominal harus lebih dari 0."); return; }
-
-      t.date = newDate.trim();
-      t.type = newType;
-      t.category = newCat.trim();
-      t.desc = newDesc.trim();
-      t.amount = amtNum;
-
-      save();
-      render();
+      alert("Edit global belum aktif (butuh API update). Kalau mau, aku aktifkan.");
     }
 
     function filtered(){
       const q = normalize(elQ.value).toLowerCase();
       const ft = elFilterType.value;
 
-      return tx.filter(t => {
-        if(ft !== "all" && t.type !== ft) return false;
-        if(!q) return true;
-        const hay = `${t.category} ${t.desc} ${t.date}`.toLowerCase();
-        return hay.includes(q);
-      });
+      return tx
+        .slice()
+        .sort((a,b) => Number(b.createdAt||0) - Number(a.createdAt||0))
+        .filter(t => {
+          if(ft !== "all" && t.type !== ft) return false;
+          if(!q) return true;
+          const hay = `${t.category} ${t.desc} ${t.date}`.toLowerCase();
+          return hay.includes(q);
+        });
     }
 
     function compute(list){
