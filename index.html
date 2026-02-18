@@ -29,7 +29,6 @@
       --outB:#ff5a5a;
     }
 
-    /* ===== GLOBAL SUPER BOLD + CLEAR ===== */
     *{box-sizing:border-box; font-weight: 900 !important;}
     body{
       margin:0;
@@ -47,7 +46,6 @@
       text-shadow: 0 1px 1px rgba(0,0,0,0.25);
     }
 
-    /* ===== Falling petals layer ===== */
     .petal-layer{
       position:fixed;
       inset:0;
@@ -80,13 +78,9 @@
       mix-blend-mode: screen;
     }
     @keyframes fall{ to{ transform: translateY(115vh) rotate(0deg); } }
-    @keyframes sway{
-      0%,100%{ margin-left: 0px; }
-      50%{ margin-left: var(--mx); }
-    }
+    @keyframes sway{ 0%,100%{ margin-left: 0px; } 50%{ margin-left: var(--mx); } }
     @keyframes spin{ to{ rotate: 360deg; } }
 
-    /* ===== Layout ===== */
     .wrap{max-width:1100px;margin:0 auto;position:relative;z-index:1;display:grid;gap:16px}
 
     header{
@@ -133,6 +127,7 @@
       color:#fff;
       border-color: rgba(255,255,255,.2);
     }
+    button:disabled{ opacity:.6; cursor:not-allowed; }
 
     .grid{
       display:grid;
@@ -166,7 +161,6 @@
     input::placeholder, textarea::placeholder{color:rgba(255,255,255,.60); font-weight:900 !important}
     .row{display:grid;grid-template-columns: 1fr 1fr;gap:10px}
 
-    /* ===== Summary ===== */
     .summary{
       display:grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -199,7 +193,6 @@
     .net.positive{ color: #eafff5; text-shadow: 0 0 10px rgba(55,255,178,.15); }
     .net.negative{ color: #fff0f0; text-shadow: 0 0 10px rgba(255,90,90,.12); }
 
-    /* ===== Table ===== */
     .tableWrap{
       overflow:auto;
       border-radius: 16px;
@@ -294,7 +287,6 @@
 </head>
 
 <body>
-  <!-- Petals Background -->
   <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
 
   <div class="wrap">
@@ -311,10 +303,9 @@
     </header>
 
     <div class="grid">
-      <!-- Form -->
       <section class="card">
         <h2>Input Transaksi</h2>
-        <p class="small">Tambah transaksi → tabel & total langsung update otomatis.</p>
+        <p class="small">Tambah transaksi → masuk ke Google Sheets (live).</p>
 
         <div class="row">
           <div>
@@ -361,7 +352,6 @@
         </div>
       </section>
 
-      <!-- Table -->
       <section class="card">
         <div class="searchRow">
           <div class="left">
@@ -395,36 +385,11 @@
   </div>
 
   <script>
-    // ===================== 1) API URL (WAJIB GANTI) =====================
+    // ===================== API URL (punya kamu) =====================
     const API_URL = "https://script.google.com/macros/s/AKfycbzdVpb3mmZ-8ZZKR6vzyh3z26OHhfXx1dpsTVdErmYdgYej-XtQoR15n-ChQVY4xb4hSQ/exec";
- // tempel URL web app kamu di sini
 
-    async function apiLoad(){
-      const res = await fetch(API_URL);
-      const json = await res.json();
-      if(!json.ok) throw new Error("API load gagal");
-      return (json.data || []).map(x => ({
-        id: String(x.id || ""),
-        date: String(x.date || ""),
-        type: String(x.type || "in"),
-        category: String(x.category || ""),
-        desc: String(x.desc || ""),
-        amount: Number(x.amount || 0),
-        createdAt: Number(x.createdAt || Date.now())
-      }));
-    }
-
-    async function apiAdd(t){
-      await fetch(API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(t)
-      });
-    }
-
-    // ===================== 2) Petals Background =====================
+    // ========= Petals =========
     const layer = document.getElementById("petalLayer");
-
     function spawnPetal(){
       const p = document.createElement("div");
       p.className = "petal";
@@ -449,7 +414,7 @@
     }
     setInterval(spawnPetal, 260);
 
-    // ===================== 3) App Logic (dari Sheet, bukan localStorage) =====================
+    // ========= DOM =========
     let tx = [];
 
     const elDate = document.getElementById("date");
@@ -467,27 +432,18 @@
     const elQ = document.getElementById("q");
     const elFilterType = document.getElementById("filterType");
 
-    initDefaults();
+    const btnAdd = document.getElementById("btnAdd");
+    const btnReset = document.getElementById("btnReset");
 
-    // load awal dari Google Sheets
-    (async () => {
-      try{
-        tx = await apiLoad();
-      }catch(e){
-        console.log(e);
-        alert("Gagal ambil data dari Google Sheets. Pastikan API_URL sudah benar & deployment akses 'Siapa saja'.");
-        tx = [];
-      }
-      render();
-    })();
+    initDefaults();
+    apiLoad(); // <<< ambil data dari Sheets saat load
 
     document.getElementById("btnAdd").addEventListener("click", addFromForm);
     document.getElementById("btnQuickIn").addEventListener("click", () => quickAdd("in"));
     document.getElementById("btnQuickOut").addEventListener("click", () => quickAdd("out"));
 
-    // Reset (sementara reset lokal tampilan saja, hapus global butuh API delete)
-    document.getElementById("btnReset").addEventListener("click", () => {
-      alert("Reset global (hapus semua data di Sheets) belum dibuat. Kalau mau, aku bisa tambahkan fitur reset global.");
+    btnReset.addEventListener("click", () => {
+      alert("Reset semua via website belum dibuat untuk Google Sheets.\nKalau mau reset total di Sheets, kosongkan sheet manual atau aku bikin tombol reset via API.");
     });
 
     elQ.addEventListener("input", render);
@@ -517,6 +473,48 @@
       return Math.random().toString(16).slice(2) + Date.now().toString(16);
     }
 
+    // ===================== API GET =====================
+    async function apiLoad(){
+      try{
+        setBusy(true, "Loading...");
+        const res = await fetch(API_URL, { method: "GET" });
+        const json = await res.json();
+
+        if(!json.ok) throw new Error("API load gagal");
+
+        tx = (json.data || []).map(x => ({
+          id: String(x.id || ""),
+          date: String(x.date || ""),
+          type: String(x.type || "in"),
+          category: String(x.category || ""),
+          desc: String(x.desc || ""),
+          amount: Number(x.amount || 0),
+          createdAt: Number(x.createdAt || Date.now())
+        }))
+        // urutkan terbaru
+        .sort((a,b) => (b.createdAt||0) - (a.createdAt||0));
+
+        render();
+      }catch(e){
+        alert("Gagal ambil data dari Google Sheets.\nPastikan API_URL benar & akses 'Siapa saja'.");
+        console.error(e);
+      }finally{
+        setBusy(false);
+      }
+    }
+
+    // ===================== API POST =====================
+    async function apiAdd(payload){
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const json = await res.json();
+      if(!json.ok) throw new Error("POST gagal");
+      return json;
+    }
+
     async function addFromForm(){
       const date = elDate.value || toDateInputValue(new Date());
       const type = elType.value;
@@ -524,32 +522,37 @@
       const desc = normalize(elDesc.value);
       const amount = Number(elAmt.value);
 
-      if(!category){
-        alert("Kategori wajib diisi.");
-        elCat.focus(); return;
-      }
-      if(!amount || amount <= 0){
-        alert("Nominal harus lebih dari 0.");
-        elAmt.focus(); return;
-      }
+      if(!category){ alert("Kategori wajib diisi."); elCat.focus(); return; }
+      if(!amount || amount <= 0){ alert("Nominal harus lebih dari 0."); elAmt.focus(); return; }
 
-      const t = { id: uid(), date, type, category, desc, amount, createdAt: Date.now() };
+      const payload = {
+        id: uid(),
+        date,
+        type,
+        category,
+        desc,
+        amount,
+        createdAt: Date.now()
+      };
 
-      // tampilkan cepat di UI
-      tx.unshift(t);
-      render();
-
-      // simpan ke Sheets
       try{
-        await apiAdd(t);
-      }catch(e){
-        console.log(e);
-        alert("Gagal simpan ke Google Sheets. Cek API_URL / izin akses.");
-      }
+        setBusy(true, "Menyimpan...");
+        await apiAdd(payload);
 
-      elAmt.value = "";
-      elDesc.value = "";
-      elCat.focus();
+        // bersihkan input
+        elAmt.value = "";
+        elDesc.value = "";
+        elCat.value = "";
+        elCat.focus();
+
+        // reload dari Sheets biar live
+        await apiLoad();
+      }catch(e){
+        alert("Gagal simpan ke Google Sheets.\nCoba refresh dan coba lagi.");
+        console.error(e);
+      }finally{
+        setBusy(false);
+      }
     }
 
     function quickAdd(type){
@@ -557,27 +560,24 @@
       elAmt.focus();
     }
 
-    // belum ada delete/update global (butuh endpoint tambahan)
+    // NOTE: edit/hapus di UI saja (tidak mengubah Sheet) karena API belum ada endpoint update/delete
     function removeTx(id){
-      alert("Hapus global belum aktif (butuh API delete). Kalau mau, aku aktifkan.");
+      alert("Hapus data di Google Sheets belum diaktifkan.\nKalau mau, aku bisa bikin API delete by id.");
     }
     function editTx(id){
-      alert("Edit global belum aktif (butuh API update). Kalau mau, aku aktifkan.");
+      alert("Edit data di Google Sheets belum diaktifkan.\nKalau mau, aku bisa bikin API update by id.");
     }
 
     function filtered(){
       const q = normalize(elQ.value).toLowerCase();
       const ft = elFilterType.value;
 
-      return tx
-        .slice()
-        .sort((a,b) => Number(b.createdAt||0) - Number(a.createdAt||0))
-        .filter(t => {
-          if(ft !== "all" && t.type !== ft) return false;
-          if(!q) return true;
-          const hay = `${t.category} ${t.desc} ${t.date}`.toLowerCase();
-          return hay.includes(q);
-        });
+      return tx.filter(t => {
+        if(ft !== "all" && t.type !== ft) return false;
+        if(!q) return true;
+        const hay = `${t.category} ${t.desc} ${t.date}`.toLowerCase();
+        return hay.includes(q);
+      });
     }
 
     function compute(list){
@@ -606,7 +606,7 @@
       if(list.length === 0){
         const tr = document.createElement("tr");
         tr.innerHTML = `<td colspan="6" style="padding:16px 10px; color:#111;">
-          Belum ada data. Tambahkan transaksi di panel kiri.
+          Belum ada data di Google Sheets. Tambahkan transaksi di panel kiri.
         </td>`;
         elRows.appendChild(tr);
         return;
@@ -640,6 +640,11 @@
         .replaceAll(">","&gt;")
         .replaceAll('"',"&quot;")
         .replaceAll("'","&#039;");
+    }
+
+    function setBusy(isBusy, label){
+      btnAdd.disabled = isBusy;
+      btnAdd.textContent = isBusy ? (label || "Loading...") : "Tambah";
     }
 
     window.removeTx = removeTx;
