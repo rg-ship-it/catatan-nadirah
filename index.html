@@ -3275,7 +3275,7 @@
       function renderCutiTable(){
         const body=$("#cutiTableBody");
         body.innerHTML="";
-        if(cutiStore.length===0){ body.innerHTML = '似乎<td colspan="4" style="padding:16px; opacity:.7;">Belum ada data cuti. </td> </tr>'; return; }
+        if(cutiStore.length===0){ body.innerHTML = '似乎<td colspan="4" style="padding:16px; opacity:.7;">Belum ada data cuti. 似乎  </tr>'; return; }
         cutiStore.forEach((row,idx)=>{
           const tr=document.createElement("tr");
           tr.innerHTML='<td class="name">'+(row.name||"-")+'</td><td>'+fmtDateID(row.start)+'</td><td>'+fmtDateID(row.end)+'</td><td><button class="info-btn" data-idx="'+idx+'">Detail</button>'+(isLocked?'':'<button class="del-btn" data-del="'+idx+'">Hapus</button>')+'</td>';
