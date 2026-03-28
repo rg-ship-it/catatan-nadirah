@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="utf-8" />
@@ -24,7 +24,6 @@
     }
     *{box-sizing:border-box}
 
-    /* ===== BACKGROUND UTAMA DENGAN EFEK HIDUP ===== */
     body {
       margin: 0;
       font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
@@ -613,15 +612,6 @@
       pointer-events: none;
     }
 
-    .day.cuti{
-      background: linear-gradient(145deg,#d2ebff,#aad7ff,#78b4f0,#ebf8ff);
-      border-color:#8cc8ff; color:#031628;
-    }
-    .day.bagan{
-      background: linear-gradient(145deg,#ebe6ff,#d2c8f5,#afa5dc,#f5f2ff);
-      border-color:#c8b9ff; color:#16092a;
-    }
-
     .names-mini{
       font-size:11px;
       line-height:1.1;
@@ -678,9 +668,6 @@
     .dot{
       position:absolute; right:6px; bottom:6px; width:8px; height:8px; border-radius:50%;
       background: rgba(255, 215, 0, 0.7); box-shadow:0 0 0 1.5px rgba(139, 0, 0, 0.8) inset;
-    }
-    .day.off .dot,.day.blocked .dot,.day.cuti .dot,.day.bagan .dot{
-      background:#fff; box-shadow:0 0 8px rgba(255,255,255,.8);
     }
 
     .today{outline:2px solid rgba(255, 215, 0, 0.9); outline-offset:-2px;}
@@ -1542,189 +1529,6 @@
       text-align: center;
     }
 
-    /* ===== STYLE UNTUK EMAIL MODAL (MERAH METALIK + BORDER EMAS HIDUP) ===== */
-    .email-modal .modal {
-      background: linear-gradient(145deg, #8B0000, #5A0000, #8B0000);
-      border: 3px solid #FFD700;
-      box-shadow: 
-        0 0 20px #FFD700,
-        0 0 40px #FFD700,
-        inset 0 0 20px rgba(255, 215, 0, 0.5);
-      animation: glowPulse 2s infinite alternate;
-      border-radius: 20px;
-    }
-
-    .email-modal .modal input {
-      width: 100%;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 2px solid #FFD700;
-      background: rgba(0, 0, 0, 0.4);
-      color: white;
-      font-size: 16px;
-      font-weight: 600;
-      outline: none;
-      margin: 15px 0;
-      transition: all 0.3s ease;
-    }
-
-    .email-modal .modal input:focus {
-      box-shadow: 0 0 15px #FFD700, inset 0 0 10px rgba(255, 215, 0, 0.3);
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    .email-modal .modal input::placeholder {
-      color: rgba(255, 255, 255, 0.6);
-      font-weight: 400;
-    }
-
-    .email-modal .modal-actions button {
-      background: linear-gradient(145deg, #FFD700, #FFA500);
-      color: #5A0000;
-      font-weight: 900;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: 1px solid #FFF0B5;
-    }
-
-    .email-modal .modal-actions button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.8);
-    }
-
-    .email-modal .modal-actions button#emailCancelBtn {
-      background: linear-gradient(145deg, #666, #333);
-      color: #FFD700;
-      border: 1px solid #FFD700;
-    }
-
-    @keyframes glowPulse {
-      0% {
-        box-shadow: 
-          0 0 20px #FFD700,
-          0 0 40px #FFD700,
-          inset 0 0 20px rgba(255, 215, 0, 0.5);
-      }
-      100% {
-        box-shadow: 
-          0 0 30px #FFD700,
-          0 0 60px #FFAA00,
-          inset 0 0 30px rgba(255, 215, 0, 0.7);
-      }
-    }
-
-    /* Responsif untuk mobile */
-    @media (max-width: 700px){
-      .modal{grid-template-columns:1fr;}
-      .bagan-board{grid-template-columns:repeat(20, 80px);}
-      
-      .grid{
-        gap:6px;
-        padding:6px;
-      }
-      .day{
-        min-height:160px;
-        padding:4px;
-      }
-      .date-row{
-        font-size:12px;
-      }
-      .date-row span:first-child{
-        font-size:14px;
-      }
-      .badge{
-        font-size:8px;
-        padding:1px 4px;
-      }
-      .names-mini{
-        font-size:10px;
-        gap:2px;
-      }
-      .names-mini .line{
-        padding:1px 3px;
-        min-height:16px;
-        max-height:16px;
-      }
-      .role-pill{
-        font-size:7.5px;
-        padding:1px 4px;
-        max-width:60px;
-      }
-
-      body::after {
-        background-size: 
-          60px 60px,
-          50px 50px,
-          40px 40px,
-          30px 30px,
-          20px 20px,
-          15px 15px;
-        
-        background-position: 
-          5% 5%,
-          95% 10%,
-          10% 90%,
-          90% 85%,
-          80% 25%,
-          20% 75%,
-          95% 50%,
-          5% 30%,
-          50% 15%,
-          85% 95%;
-        
-        opacity: 0.3;
-      }
-      
-      @keyframes floatRoses {
-        0%, 100% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-        25% {
-          transform: translate(3px, 5px) rotate(0.5deg);
-        }
-        50% {
-          transform: translate(-2px, -3px) rotate(-0.5deg);
-        }
-        75% {
-          transform: translate(4px, -2px) rotate(0.3deg);
-        }
-      }
-    }
-
-    @media (max-width: 480px){
-      .grid{
-        gap:4px;
-      }
-      .day{
-        min-height:150px;
-      }
-      .names-mini{
-        font-size:9.5px;
-      }
-      .names-mini .line{
-        min-height:15px;
-        max-height:15px;
-      }
-
-      body::after {
-        background-size: 
-          40px 40px,
-          35px 35px,
-          30px 30px,
-          25px 25px,
-          20px 20px,
-          15px 15px;
-        
-        opacity: 0.25;
-      }
-    }
-  
-    .cs-name-span{font-weight:900; letter-spacing:.2px;}
-    
-    /* ===== STYLE UNTUK BARI-BARIS KOLOM EXCEL ===== */
     .baris-kolom-panel {
       display: none;
       background: rgba(255,255,255,.06);
@@ -2282,7 +2086,6 @@
       z-index: -3;
     }
     
-    /* ===== STYLE UNTUK TOMBOL UNDO/REDO ===== */
     #undoBtn:not(:disabled), #redoBtn:not(:disabled) {
         background: linear-gradient(145deg,
             #F59E0B 0%,
@@ -2302,7 +2105,6 @@
         cursor: not-allowed;
     }
     
-    /* ===== STYLE UNTUK TOMBOL RESET BAGAN ===== */
     #resetBaganBtn {
         background: linear-gradient(145deg,
             #DC2626 0%,
@@ -2348,18 +2150,7 @@
 </head>
 
 <body>
-  <!-- ===== PASSWORD PROTECTION OVERLAY ===== -->
-  <div id="passwordOverlay" style="position:fixed; inset:0; background:rgba(0,0,0,0.95); backdrop-filter:blur(12px); z-index:1000000; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:20px;">
-    <div style="background:linear-gradient(145deg,#8B0000,#5A0000); padding:30px; border-radius:30px; border:3px solid #FFD700; box-shadow:0 0 50px rgba(255,215,0,0.8); text-align:center; width:90%; max-width:400px;">
-      <h2 style="color:#FFD700; margin-bottom:20px;">🔒 AKSES TERPROTEKSI</h2>
-      <p style="color:#FFE5E5; margin-bottom:20px;">Masukkan password untuk melihat jadwal offday</p>
-      <input type="password" id="sitePassword" placeholder="Password" style="width:100%; padding:12px; border-radius:12px; border:2px solid #FFD700; background:rgba(0,0,0,0.5); color:white; font-size:16px; margin-bottom:20px;">
-      <button id="submitPassword" style="background:linear-gradient(145deg,#FFD700,#FFA500); color:#5A0000; border:none; padding:12px 25px; border-radius:12px; font-weight:900; font-size:16px; cursor:pointer;">Masuk</button>
-      <div id="passwordError" style="color:#FF6B6B; margin-top:15px; font-size:14px; display:none;">Password salah! Coba lagi.</div>
-    </div>
-  </div>
-
-  <div class="app" id="appContent" style="display:none;">
+  <div class="app">
     <div class="header">
       <div class="brand">
         <div class="logo">OFF</div>
@@ -2420,12 +2211,12 @@
       <div class="cuti-table-wrap">
         <table class="cuti-table">
           <thead>
-              <tr>
-                <th>Nama Staff</th>
-                <th>Tanggal Cuti</th>
-                <th>Selesai Cuti</th>
-                <th>Info</th>
-              </tr>
+            <tr>
+              <th>Nama Staff</th>
+              <th>Tanggal Cuti</th>
+              <th>Selesai Cuti</th>
+              <th>Info</th>
+            </tr>
           </thead>
           <tbody id="cutiTableBody"></tbody>
         </table>
@@ -2533,7 +2324,7 @@
       <div class="cuti-table-wrap">
         <table class="cuti-table" id="piketTable">
           <thead>
-              <tr>
+            <tr>
               <th>Hari</th>
               <th colspan="8">🧹 PIKET BUANG SAMPAH SHIFT PAGI MAWARTOTO 🧹</th>
             </tr>
@@ -2560,7 +2351,7 @@
       <div class="cs-wrap">
         <table class="cs-table">
           <thead>
-              <tr>
+            <tr>
               <th style="width:45%;">NAMA CS</th>
               <th style="width:30%;">JOBDESK</th>
               <th style="width:25%;">AKSI</th>
@@ -2696,7 +2487,24 @@
     </div>
   </div>
 
-  <!-- MODAL PASSWORD RESET -->
+  <!-- MODAL PASSWORD (initial access) -->
+  <div class="modal-backdrop password-modal" id="initialPasswordBackdrop" style="display:grid;">
+    <div class="modal">
+      <div>
+        <h3 style="text-align:center;">🔐 Akses Sistem</h3>
+        <div class="sub" style="text-align:center;">Masukkan password untuk mengakses website</div>
+
+        <input type="password" id="initialPasswordInput" class="password-input" placeholder="Password" autocomplete="off" />
+
+        <div class="modal-actions" style="justify-content:center;">
+          <button id="initialPasswordConfirmBtn" class="btn-green">Verifikasi</button>
+        </div>
+        <div class="password-hint">Password: mawar258159</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PASSWORD (edit unlock) -->
   <div class="modal-backdrop password-modal" id="passwordBackdrop">
     <div class="modal">
       <div>
@@ -2710,23 +2518,6 @@
             <button id="passwordCancelBtn">Batal</button>
             <button id="passwordConfirmBtn" class="btn-green">Verifikasi</button>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL EMAIL (custom) -->
-  <div class="modal-backdrop email-modal" id="emailBackdrop">
-    <div class="modal">
-      <div style="width:100%;">
-        <h3 style="color:#FFD700; text-align:center; margin-top:0;">🔐 Masukkan Email</h3>
-        <div class="sub" style="color:#FFE5E5; text-align:center;">Email Anda diperlukan untuk identifikasi</div>
-
-        <input type="email" id="emailInput" class="email-input" placeholder="contoh@email.com" autocomplete="off" />
-
-        <div class="modal-actions" style="justify-content:center;">
-          <button id="emailCancelBtn" class="btn-danger" style="background:rgba(0,0,0,0.5);">Batal</button>
-          <button id="emailConfirmBtn" class="btn-green" style="background:linear-gradient(145deg, #FFD700, #FFA500); color:#5A0000;">OK</button>
         </div>
       </div>
     </div>
@@ -2751,63 +2542,51 @@
     (() => {
       const $ = q => document.querySelector(q);
 
+      const ACCESS_PASSWORD = "mawar258159";
+
+      let isAuthenticated = false;
+
+      function showInitialPasswordModal() {
+        const modal = $("#initialPasswordBackdrop");
+        modal.style.display = "grid";
+        $("#initialPasswordInput").focus();
+      }
+
+      function hideInitialPasswordModal() {
+        $("#initialPasswordBackdrop").style.display = "none";
+      }
+
+      $("#initialPasswordConfirmBtn").onclick = () => {
+        const input = $("#initialPasswordInput").value;
+        if (input === ACCESS_PASSWORD) {
+          isAuthenticated = true;
+          hideInitialPasswordModal();
+          startApp();
+        } else {
+          toast("Password salah!");
+          $("#initialPasswordInput").value = "";
+          $("#initialPasswordInput").focus();
+        }
+      };
+
+      $("#initialPasswordInput").addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          $("#initialPasswordConfirmBtn").click();
+        }
+      });
+
       // =========================
-      // ✅ GLOBAL FIREBASE SYNC
+      // GLOBAL FIREBASE SYNC
       // =========================
       const GLOBAL_ROOM_ID = "mwtt-main";
-
       const clientIdKey = "mwtt-client-id";
       const clientId = localStorage.getItem(clientIdKey) || ("c_" + Math.random().toString(16).slice(2));
       localStorage.setItem(clientIdKey, clientId);
-
       const dbRef = firebase.database().ref("offday/" + GLOBAL_ROOM_ID);
 
       let isApplyingRemote = false;
       let lastRemoteUpdatedAt = 0;
       let pushTimer = null;
-
-      // =========================
-      // ✅ USER EMAIL UNTUK LOGGING (dengan custom modal)
-      // =========================
-      let userEmail = localStorage.getItem('userEmail') || '';
-      let emailCallback = null;
-
-      function showEmailModal() {
-        return new Promise((resolve) => {
-          emailCallback = resolve;
-          $('#emailBackdrop').style.display = 'grid';
-          $('#emailInput').value = '';
-          $('#emailInput').focus();
-        });
-      }
-
-      $('#emailConfirmBtn').onclick = () => {
-        const email = $('#emailInput').value.trim();
-        if (email && email.includes('@') && email.includes('.')) {
-          userEmail = email;
-          localStorage.setItem('userEmail', userEmail);
-          $('#emailBackdrop').style.display = 'none';
-          if (emailCallback) {
-            emailCallback(userEmail);
-            emailCallback = null;
-          }
-          toast(`Selamat datang, ${userEmail}`);
-        } else {
-          toast('Email tidak valid');
-          $('#emailInput').focus();
-        }
-      };
-
-      $('#emailCancelBtn').onclick = () => {
-        alert('Email diperlukan untuk melanjutkan.');
-        $('#emailInput').focus();
-      };
-
-      $('#emailBackdrop').addEventListener('click', (e) => {
-        if (e.target === $('#emailBackdrop')) {
-          alert('Silakan masukkan email terlebih dahulu.');
-        }
-      });
 
       function schedulePush() {
         if (isApplyingRemote) return;
@@ -2834,13 +2613,9 @@
       }
 
       function logDelete(action, detail) {
-        if (!userEmail) {
-          console.warn('User email not found, cannot log delete');
-          return;
-        }
         const logRef = firebase.database().ref('deleteLogs').push();
         logRef.set({
-          email: userEmail,
+          user: "ADMIN (SISTEM)",
           action: action,
           detail: detail,
           timestamp: Date.now(),
@@ -2929,7 +2704,7 @@
       }
 
       // =========================
-      // ✅ FITUR UNDO/REDO (CTRL+Z) UNTUK KALENDER
+      // FITUR UNDO/REDO (CTRL+Z) UNTUK KALENDER
       // =========================
       let undoStack = [];
       let redoStack = [];
@@ -2941,77 +2716,44 @@
             key: activeKey,
             data: JSON.parse(JSON.stringify(store[activeKey]))
           };
-          
           undoStack.push(snapshot);
-          if (undoStack.length > MAX_UNDO_HISTORY) {
-            undoStack.shift();
-          }
-          
+          if (undoStack.length > MAX_UNDO_HISTORY) undoStack.shift();
           redoStack = [];
         }
       }
 
       function undo() {
-        if (undoStack.length === 0) {
-          toast("Tidak ada perubahan untuk di-undo");
-          return;
-        }
-        
+        if (undoStack.length === 0) { toast("Tidak ada perubahan untuk di-undo"); return; }
         const snapshot = undoStack.pop();
         const currentState = store[snapshot.key] ? JSON.parse(JSON.stringify(store[snapshot.key])) : null;
-        
-        if (currentState) {
-          redoStack.push({
-            key: snapshot.key,
-            data: currentState
-          });
-        }
-        
+        if (currentState) redoStack.push({ key: snapshot.key, data: currentState });
         store[snapshot.key] = snapshot.data;
         saveStore();
-        
         if (activeKey === snapshot.key && $("#backdrop").style.display === "grid") {
           const date = new Date(snapshot.key);
           openCalendarModal(snapshot.key, date);
         }
-        
         renderCalendar();
         schedulePush();
         toast("Undo berhasil");
       }
 
       function redo() {
-        if (redoStack.length === 0) {
-          toast("Tidak ada perubahan untuk di-redo");
-          return;
-        }
-        
+        if (redoStack.length === 0) { toast("Tidak ada perubahan untuk di-redo"); return; }
         const snapshot = redoStack.pop();
         const currentState = store[snapshot.key] ? JSON.parse(JSON.stringify(store[snapshot.key])) : null;
-        
-        if (currentState) {
-          undoStack.push({
-            key: snapshot.key,
-            data: currentState
-          });
-        }
-        
+        if (currentState) undoStack.push({ key: snapshot.key, data: currentState });
         store[snapshot.key] = snapshot.data;
         saveStore();
-        
         if (activeKey === snapshot.key && $("#backdrop").style.display === "grid") {
           const date = new Date(snapshot.key);
           openCalendarModal(snapshot.key, date);
         }
-        
         renderCalendar();
         schedulePush();
         toast("Redo berhasil");
       }
 
-      // =========================
-      // ✅ SISTEM UNDO/REDO UNTUK BAGAN
-      // =========================
       let baganUndoStack = [];
       let baganRedoStack = [];
       const MAX_BAGAN_UNDO = 20;
@@ -3023,65 +2765,36 @@
             timestamp: Date.now(),
             action: "bagan_change"
         };
-        
         baganUndoStack.push(snapshot);
-        if (baganUndoStack.length > MAX_BAGAN_UNDO) {
-            baganUndoStack.shift();
-        }
-        
+        if (baganUndoStack.length > MAX_BAGAN_UNDO) baganUndoStack.shift();
         baganRedoStack = [];
-        
         updateUndoRedoButtons();
       }
 
       function undoBagan() {
-        if (baganUndoStack.length === 0) {
-          toast("Tidak ada perubahan bagan untuk di-undo");
-          return;
-        }
-        
-        const currentState = {
-            meta: JSON.parse(JSON.stringify(baganMeta)),
-            seats: JSON.parse(JSON.stringify(baganStore)),
-            timestamp: Date.now(),
-            action: "bagan_change"
-        };
+        if (baganUndoStack.length === 0) { toast("Tidak ada perubahan bagan untuk di-undo"); return; }
+        const currentState = { meta: JSON.parse(JSON.stringify(baganMeta)), seats: JSON.parse(JSON.stringify(baganStore)), timestamp: Date.now(), action: "bagan_change" };
         baganRedoStack.push(currentState);
-        
         const previousState = baganUndoStack.pop();
         baganMeta = previousState.meta;
         baganStore = previousState.seats;
-        
         saveBagan();
         renderBagan();
         schedulePush();
-        
         updateUndoRedoButtons();
         toast("Undo perubahan bagan berhasil");
       }
 
       function redoBagan() {
-        if (baganRedoStack.length === 0) {
-          toast("Tidak ada perubahan bagan untuk di-redo");
-          return;
-        }
-        
-        const currentState = {
-            meta: JSON.parse(JSON.stringify(baganMeta)),
-            seats: JSON.parse(JSON.stringify(baganStore)),
-            timestamp: Date.now(),
-            action: "bagan_change"
-        };
+        if (baganRedoStack.length === 0) { toast("Tidak ada perubahan bagan untuk di-redo"); return; }
+        const currentState = { meta: JSON.parse(JSON.stringify(baganMeta)), seats: JSON.parse(JSON.stringify(baganStore)), timestamp: Date.now(), action: "bagan_change" };
         baganUndoStack.push(currentState);
-        
         const nextState = baganRedoStack.pop();
         baganMeta = nextState.meta;
         baganStore = nextState.seats;
-        
         saveBagan();
         renderBagan();
         schedulePush();
-        
         updateUndoRedoButtons();
         toast("Redo perubahan bagan berhasil");
       }
@@ -3089,24 +2802,13 @@
       function updateUndoRedoButtons() {
         const undoBtn = $("#undoBtn");
         const redoBtn = $("#redoBtn");
-        
-        if (undoBtn) {
-          undoBtn.disabled = baganUndoStack.length === 0 && undoStack.length === 0;
-        }
-        
-        if (redoBtn) {
-          redoBtn.disabled = baganRedoStack.length === 0 && redoStack.length === 0;
-        }
+        if (undoBtn) undoBtn.disabled = baganUndoStack.length === 0 && undoStack.length === 0;
+        if (redoBtn) redoBtn.disabled = baganRedoStack.length === 0 && redoStack.length === 0;
       }
 
       function handleBaganChange(action, callback) {
-        if(isLocked) {
-          toast("Terkunci. Hanya bos yang bisa edit bagan.");
-          return;
-        }
-        
+        if(isLocked) { toast("Terkunci. Hanya bos yang bisa edit bagan."); return; }
         saveBaganToUndoStack();
-        
         callback();
       }
 
@@ -3142,7 +2844,7 @@
       const DIVISI_OPTIONS = [
         { value: "LIVE_CHAT", label: "LIVE CHAT", color: "#3498db" },
         { value: "WHATSAPP", label: "WHATSAPP", color: "#2ecc71" },
-        { value: "DEPOSIT", label: "DEPOSIT", color: "#F5E6C8" },
+        { value: "DEPOSIT", label: "DEPOSIT", color: "#9b59b6" },
         { value: "DESIGN", label: "DESIGN", color: "#e74c3c" },
         { value: "FINANCE", label: "FINANCE", color: "#f1c40f" },
         { value: "BANKER", label: "BANKER", color: "#1abc9c" },
@@ -3195,16 +2897,12 @@
       const baganKey = "bagan-v3";
       const baganMetaKey = "bagan-meta-v1";
 
-      let baganMeta = JSON.parse(localStorage.getItem(baganMetaKey) || "null")
-                   || { rows: 10, cols: 20 };
-
+      let baganMeta = JSON.parse(localStorage.getItem(baganMetaKey) || "null") || { rows: 10, cols: 20 };
       function BAGAN_ROWS(){ return baganMeta.rows; }
       function BAGAN_COLS(){ return baganMeta.cols; }
       function BAGAN_SIZE(){ return BAGAN_ROWS() * BAGAN_COLS(); }
 
-      let baganStore = JSON.parse(localStorage.getItem(baganKey) || "null")
-                     || Array.from({length:BAGAN_SIZE()}, ()=>({name:"", active:true, divisi: ""}));
-
+      let baganStore = JSON.parse(localStorage.getItem(baganKey) || "null") || Array.from({length:BAGAN_SIZE()}, ()=>({name:"", active:true, divisi: ""}));
       const saveBagan = () => {
         localStorage.setItem(baganKey, JSON.stringify(baganStore));
         localStorage.setItem(baganMetaKey, JSON.stringify(baganMeta));
@@ -3213,17 +2911,11 @@
       function ensureBaganSize(){
         const sizeNeeded = BAGAN_SIZE();
         if(baganStore.length < sizeNeeded){
-          baganStore.push(
-            ...Array.from(
-              {length:sizeNeeded-baganStore.length},
-              ()=>({name:"", active:true, divisi: ""})
-            )
-          );
+          baganStore.push(...Array.from({length:sizeNeeded-baganStore.length}, ()=>({name:"", active:true, divisi: ""})));
         }
         if(baganStore.length > sizeNeeded){
           baganStore = baganStore.slice(0, sizeNeeded);
         }
-
         baganStore.forEach(s=>{
           if(typeof s.active !== "boolean") s.active = true;
           if(typeof s.name !== "string") s.name = "";
@@ -3231,15 +2923,10 @@
         });
       }
 
-      // Store untuk BARI-BARIS KOLOM EXCEL
       const barisKolomExcelKey = "baris-kolom-excel-v4";
       let barisKolomExcelData = JSON.parse(localStorage.getItem(barisKolomExcelKey) || "null") || {};
-      
-      function saveBarisKolomExcel() {
-        localStorage.setItem(barisKolomExcelKey, JSON.stringify(barisKolomExcelData));
-      }
+      function saveBarisKolomExcel() { localStorage.setItem(barisKolomExcelKey, JSON.stringify(barisKolomExcelData)); }
 
-      // Store untuk NAMA DATABASE
       const namaDatabaseKey = "nama-database-v1";
       const namaDatabaseDefault = [
         { name: "BUDI", divisi: "LIVECHAT" },
@@ -3247,13 +2934,8 @@
         { name: "AGUS", divisi: "DEPOSIT" },
         { name: "DEWI", divisi: "DESIGN" }
       ];
-      
-      let namaDatabaseStore = JSON.parse(localStorage.getItem(namaDatabaseKey) || "null") 
-        || namaDatabaseDefault.slice();
-      
-      function saveNamaDatabase() {
-        localStorage.setItem(namaDatabaseKey, JSON.stringify(namaDatabaseStore));
-      }
+      let namaDatabaseStore = JSON.parse(localStorage.getItem(namaDatabaseKey) || "null") || namaDatabaseDefault.slice();
+      function saveNamaDatabase() { localStorage.setItem(namaDatabaseKey, JSON.stringify(namaDatabaseStore)); }
 
       const piketKey = "piket-v1";
       const defaultPiket = {
@@ -3265,9 +2947,7 @@
         SABTU: Array(8).fill(""),
         MINGGU: Array(8).fill("")
       };
-      const safeClone = obj => JSON.parse(JSON.stringify(obj));
-      const piketStore = JSON.parse(localStorage.getItem(piketKey) || "null")
-        || safeClone(defaultPiket);
+      const piketStore = JSON.parse(localStorage.getItem(piketKey) || "null") || JSON.parse(JSON.stringify(defaultPiket));
       const savePiket = () => localStorage.setItem(piketKey, JSON.stringify(piketStore));
 
       const csKey = "cs-mawaroto-v1";
@@ -3283,7 +2963,7 @@
         { value:"", label:"Pilih Jobdesk", color:"#202741" },
         { value:"LIVECHAT", label:"LIVECHAT", color:"#bfe3ff" },
         { value:"WHATSAPP", label:"WHATSAPP", color:"#A3E635" },
-        { value:"DEPOSIT", label:"DEPOSIT", color:"#F5E6C8" },
+        { value:"DEPOSIT", label:"DEPOSIT", color:"#8B5CF6" },
         { value:"WORKER WD", label:"WORKER WD", color:"#D8BFD8" },
         { value:"DESIGN", label:"DESIGN", color:"#f59e0b" },
         { value:"ADMIN", label:"ADMIN", color:"#FB923C" },
@@ -3366,15 +3046,9 @@
       $("#passwordCancelBtn").onclick = closePasswordModal;
       $("#passwordConfirmBtn").onclick = () => {
         const input = $("#passwordInput").value.trim();
-        if (!input) {
-          toast("Password tidak boleh kosong");
-          return;
-        }
-
+        if (!input) { toast("Password tidak boleh kosong"); return; }
         if (input === EDIT_PASSWORD) {
-          if (passwordCallback) {
-            passwordCallback();
-          }
+          if (passwordCallback) passwordCallback();
           closePasswordModal();
         } else {
           toast("Password salah!");
@@ -3382,38 +3056,18 @@
           $("#passwordInput").focus();
         }
       };
-
-      $("#passwordInput").addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-          $("#passwordConfirmBtn").click();
-        }
-      });
+      $("#passwordInput").addEventListener("keypress", (e) => { if (e.key === "Enter") $("#passwordConfirmBtn").click(); });
 
       function updateLockUI(){
         const b=$("#lockBtn");
         b.textContent = isLocked ? "🔒 TERKUNCI" : "🔓 EDIT MODE";
         b.className = isLocked ? "btn-amber" : "btn-green";
         localStorage.setItem(lockKey, String(isLocked));
-        
         const buttonsToHide = [
-          "#addCutiBtn",
-          "#addCatatanBtn",
-          "#addCsBtn",
-          "#addRowBtn",
-          "#addColBtn",
-          "#removeColBtn",
-          "#toggleDeleteSeatBtn",
-          "#bulkImport",
-          "#addExcelRowBtn",
-          "#addNamaBtn",
-          "#resetBaganBtn"
+          "#addCutiBtn","#addCatatanBtn","#addCsBtn","#addRowBtn","#addColBtn","#removeColBtn",
+          "#toggleDeleteSeatBtn","#bulkImport","#addExcelRowBtn","#addNamaBtn","#resetBaganBtn"
         ];
-        
-        buttonsToHide.forEach(selector => {
-          const btn = $(selector);
-          if (btn) btn.style.display = isLocked ? "none" : "inline-block";
-        });
-
+        buttonsToHide.forEach(selector => { const btn = $(selector); if (btn) btn.style.display = isLocked ? "none" : "inline-block"; });
         reRenderActivePanel();
       }
 
@@ -3435,75 +3089,45 @@
           schedulePush();
           toast("Mode terkunci");
         } else {
-          openPasswordModal(
-            "Buka Mode Edit",
-            "Masukkan password untuk mengaktifkan mode edit",
-            () => {
-              isLocked = false;
-              updateLockUI();
-              schedulePush();
-              toast("Edit mode aktif");
-            }
-          );
+          openPasswordModal("Buka Mode Edit","Masukkan password untuk mengaktifkan mode edit",()=>{
+            isLocked = false;
+            updateLockUI();
+            schedulePush();
+            toast("Edit mode aktif");
+          });
         }
       };
 
-      function ymd(date){
-        const y=date.getFullYear();
-        const m=String(date.getMonth()+1).padStart(2,"0");
-        const d=String(date.getDate()).padStart(2,"0");
-        return y + "-" + m + "-" + d;
-      }
-
-      function getMonthData(date){
-        const y=date.getFullYear(), m=date.getMonth();
-        const first=new Date(y,m,1), last=new Date(y,m+1,0);
-        const startDay=(first.getDay()+6)%7;
-        return {y:y, m:m, startDay:startDay, daysInMonth:last.getDate()};
-      }
-
+      function ymd(date){ const y=date.getFullYear(); const m=String(date.getMonth()+1).padStart(2,"0"); const d=String(date.getDate()).padStart(2,"0"); return y+"-"+m+"-"+d; }
+      function getMonthData(date){ const y=date.getFullYear(), m=date.getMonth(); const first=new Date(y,m,1), last=new Date(y,m+1,0); const startDay=(first.getDay()+6)%7; return {y:y, m:m, startDay:startDay, daysInMonth:last.getDate()}; }
       function ensureDay(key){
         store[key]=store[key]||{};
         if(store[key].off===true && !store[key].type) store[key].type="OFF";
         if(!store[key].type) store[key].type="OFF";
-
         if(!store[key].entries){
           const old = store[key].names || Array(10).fill("");
           store[key].entries = old.map(n=>({name:n||"",role:""}));
           delete store[key].names;
         }
-        
         while(store[key].entries.length<10) store[key].entries.push({name:"",role:""});
         store[key].entries = store[key].entries.slice(0,10);
-
         store[key].blocked = store[key].blocked || false;
       }
 
       function isDark(hex){
         let c = (hex||"#000").replace("#","");
         if(c.length===3) c=c.split("").map(x=>x+x).join("");
-        const r=parseInt(c.slice(0,2),16);
-        const g=parseInt(c.slice(2,4),16);
-        const b=parseInt(c.slice(4,6),16);
+        const r=parseInt(c.slice(0,2),16); const g=parseInt(c.slice(2,4),16); const b=parseInt(c.slice(4,6),16);
         const lum=0.299*r+0.587*g+0.114*b;
         return lum<140;
       }
 
-      function renderWeekdays(){
-        $("#weekdays").innerHTML = WEEKDAYS_ID.map(d=>"<div>"+d+"</div>").join("");
-      }
-
+      function renderWeekdays(){ $("#weekdays").innerHTML = WEEKDAYS_ID.map(d=>"<div>"+d+"</div>").join(""); }
       function buildCopyText(key){
-        const entries=(store[key]?.entries||[])
-          .map(e=>({name:(e.name||"").trim()}))
-          .filter(e=>e.name);
+        const entries=(store[key]?.entries||[]).map(e=>({name:(e.name||"").trim()})).filter(e=>e.name);
         return entries.length? entries.map(e=>e.name).join("\n") : "";
       }
-
-      function refreshCopyBox(){
-        if(!activeKey) return;
-        $("#copyBox").value = buildCopyText(activeKey);
-      }
+      function refreshCopyBox(){ if(!activeKey) return; $("#copyBox").value = buildCopyText(activeKey); }
 
       function renderCalendar(){
         const grid=$("#grid");
@@ -3511,189 +3135,87 @@
         const y=md.y, m=md.m, startDay=md.startDay, daysInMonth=md.daysInMonth;
         $("#monthLabel").textContent=MONTHS_ID[m]+" "+y;
         grid.innerHTML="";
-
-        for(let i=0;i<startDay;i++){
-          const blank=document.createElement("div");
-          blank.className="day muted";
-          grid.appendChild(blank);
-        }
-
+        for(let i=0;i<startDay;i++){ const blank=document.createElement("div"); blank.className="day muted"; grid.appendChild(blank); }
         const today=new Date();
-
         for(let d=1; d<=daysInMonth; d++){
           const date=new Date(y,m,d);
           const key=ymd(date);
           const dow=(date.getDay()+6)%7;
           const isWeekend=dow>=5;
-
           ensureDay(key);
-
           const isBlocked=store[key]?.blocked===true;
           const type=store[key]?.type||"OFF";
-
-          const hideByFilter =
-            activeFilterType !== "ALL" &&
-            activeFilterType !== "CUTI" &&
-            activeFilterType !== "BAGAN_VIEW" &&
-            activeFilterType !== "BARI_KOLOM" &&
-            activeFilterType !== "NAMA" &&
-            activeFilterType !== "PIKET" &&
-            activeFilterType !== "CS_MAWAROTO" &&
-            activeFilterType !== "CATATAN" &&
-            !isBlocked &&
-            type !== activeFilterType;
-
+          const hideByFilter = activeFilterType !== "ALL" && activeFilterType !== "CUTI" && activeFilterType !== "BAGAN_VIEW" && activeFilterType !== "BARI_KOLOM" && activeFilterType !== "NAMA" && activeFilterType !== "PIKET" && activeFilterType !== "CS_MAWAROTO" && activeFilterType !== "CATATAN" && !isBlocked && type !== activeFilterType;
           const cell=document.createElement("div");
-          cell.className=
-            "day"+
-            (isWeekend?" weekend":"")+
-            (isBlocked?" blocked":"")+
-            (!isBlocked && type==="OFF"?" off":"")+
-            (!isBlocked && type==="BAGAN"?" bagan":"")+
-            (hideByFilter ? " muted":"")+
-            (date.toDateString()===today.toDateString()?" today":"");
+          cell.className="day"+(isWeekend?" weekend":"")+(isBlocked?" blocked":"")+(!isBlocked && type==="OFF"?" off":"")+(!isBlocked && type==="BAGAN"?" bagan":"")+(hideByFilter?" muted":"")+(date.toDateString()===today.toDateString()?" today":"");
           cell.dataset.key=key;
-
           let miniHtml="";
           if(isBlocked){
-            miniHtml=
-              '<div class="names-mini">'+
-                '<div class="line"><b>BLOCKED</b></div>'+
-                '<div class="line empty">Tanggal ditutup</div>'+
-              '</div>';
+            miniHtml='<div class="names-mini"><div class="line"><b>BLOCKED</b></div><div class="line empty">Tanggal ditutup</div></div>';
           } else{
-            const entries=(store[key].entries||[])
-              .map(e=>({name:(e.name||"").trim(),role:(e.role||"").trim()}))
-              .filter(e=>e.name);
-
+            const entries=(store[key].entries||[]).map(e=>({name:(e.name||"").trim(),role:(e.role||"").trim()})).filter(e=>e.name);
             const typeLabel=(TYPE_OPTIONS.find(t=>t.value===type)||{}).label||type;
-
             const totalEntries = entries.length;
             const displayedEntries = entries.slice(0, 10);
-            
             if(totalEntries===0){
               const emptyText = (type==="OFF") ? "Klik untuk isi (10 slot)" : (typeLabel + ": klik untuk isi");
-              miniHtml=
-                '<div class="names-mini">'+
-                  '<div class="line empty">'+emptyText+'</div>'+
-                '</div>';
+              miniHtml='<div class="names-mini"><div class="line empty">'+emptyText+'</div></div>';
             } else{
               const lines=displayedEntries.map(e=>{
-                const copyText=e.name;
-                if(!e.role){
-                  return '<div class="line copy-line" data-copy="'+copyText+'">'+
-                            '<span class="nm">'+e.name+'</span>'+
-                          '</div>';
-                }
+                if(!e.role) return '<div class="line copy-line" data-copy="'+e.name+'"><span class="nm">'+e.name+'</span></div>';
                 const color=ROLE_COLOR_MAP[e.role]||"#CBD5E1";
                 const dark=isDark(color);
                 const text=dark?"#F8FAFC":"#0B0F1D";
-                return '<div class="line copy-line" data-copy="'+copyText+'">'+
-                         '<span class="nm">'+e.name+'</span>'+
-                         '<span class="role-pill" style="background:'+color+'; color:'+text+'; border-color:rgba(0,0,0,.15)">'+
-                           e.role+
-                         '</span>'+
-                       '</div>';
+                return '<div class="line copy-line" data-copy="'+e.name+'"><span class="nm">'+e.name+'</span><span class="role-pill" style="background:'+color+'; color:'+text+'; border-color:rgba(0,0,0,.15)">'+e.role+'</span></div>';
               }).join("");
-
-              const showHeader = (type !== "OFF");
-              const headerHtml = showHeader ? ('<div class="line"><b>'+typeLabel+'</b></div>') : "";
-
-              miniHtml=
-                '<div class="names-mini">'+
-                  headerHtml+
-                  lines+
-                '</div>';
+              const headerHtml = (type !== "OFF") ? '<div class="line"><b>'+typeLabel+'</b></div>' : "";
+              miniHtml='<div class="names-mini">'+headerHtml+lines+'</div>';
             }
           }
-
-          cell.innerHTML=
-            '<div class="date-row">'+
-              '<span>'+d+'</span>'+
-              '<span class="badge">'+(isWeekend?"WEEKEND":"WORKDAY")+'</span>'+
-            '</div>'+
-            miniHtml+
-            '<div class="dot"></div>';
-
+          cell.innerHTML='<div class="date-row"><span>'+d+'</span><span class="badge">'+(isWeekend?"WEEKEND":"WORKDAY")+'</span></div>'+miniHtml+'<div class="dot"></div>';
           cell.querySelectorAll(".copy-line").forEach(line=>{
             line.addEventListener("click", async ev=>{
               ev.stopPropagation();
               const txt=line.dataset.copy||"";
               if(!txt) return;
-              try{
-                await navigator.clipboard.writeText(txt);
-                toast("Tercopy: "+txt);
-              }catch(e){ toast("Gagal auto copy, blok manual ya"); }
+              try{ await navigator.clipboard.writeText(txt); toast("Tercopy: "+txt); }catch(e){ toast("Gagal auto copy, blok manual ya"); }
             });
           });
-
           cell.addEventListener("click", ()=>{
             if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); return; }
             activeKey=key; openCalendarModal(key,date);
           });
-
           grid.appendChild(cell);
         }
       }
 
       function openCalendarModal(key,date){
         saveToUndoStack();
-        
         ensureDay(key);
         const type=store[key].type||"OFF";
-
-        $("#modalTitle").textContent =
-          "Jadwal: "+WEEKDAYS_ID[(date.getDay()+6)%7]+", "+date.getDate()+" "+MONTHS_ID[date.getMonth()]+" "+date.getFullYear();
-
+        $("#modalTitle").textContent = "Jadwal: "+WEEKDAYS_ID[(date.getDay()+6)%7]+", "+date.getDate()+" "+MONTHS_ID[date.getMonth()]+" "+date.getFullYear();
         const isBlocked=store[key].blocked===true;
-        $("#modalSub").innerHTML = isBlocked
-          ? "Tanggal ini sedang diblok."
-          : `<div style="margin-bottom: 8px;">Isi sampai 10 orang (boleh kosong).</div>
-             <div class="slot-info">Slot tersedia: ${10 - (store[key].entries?.filter(e => e.name.trim()).length || 0)}/10</div>`;
-
+        $("#modalSub").innerHTML = isBlocked ? "Tanggal ini sedang diblok." : `<div style="margin-bottom: 8px;">Isi sampai 10 orang (boleh kosong).</div><div class="slot-info">Slot tersedia: ${10 - (store[key].entries?.filter(e => e.name.trim()).length || 0)}/10</div>`;
         const typeSelect=$("#typeSelect");
         typeSelect.value=type;
         typeSelect.disabled=isBlocked;
-
         const wrap=$("#modalNames");
         wrap.innerHTML="";
-
         for (let i = 0; i < 10; i++) {
           const entry = store[key].entries[i] || { name: "", role: "" };
-          
-          const row=document.createElement("div");
-          row.className="role-row";
-
+          const row=document.createElement("div"); row.className="role-row";
           const input=document.createElement("input");
           input.placeholder="Nama "+(i+1);
           input.value=entry.name||"";
           input.dataset.i=i;
           input.disabled=isBlocked;
-
-          const selectWrap=document.createElement("div");
-          selectWrap.className="select-wrap";
-
-          const select=document.createElement("select");
-          select.className="role-select";
-          select.dataset.i=i;
-          select.disabled=isBlocked;
-
-          ROLE_OPTIONS.forEach(opt=>{
-            const o=document.createElement("option");
-            o.value=opt.value; o.textContent=opt.label;
-            o.setAttribute("data-color",opt.color);
-            if(opt.value===entry.role) o.selected=true;
-            select.appendChild(o);
-          });
-
-          const chev=document.createElement("span");
-          chev.className="chev"; chev.textContent="▾";
-
-          selectWrap.appendChild(select);
-          selectWrap.appendChild(chev);
+          const selectWrap=document.createElement("div"); selectWrap.className="select-wrap";
+          const select=document.createElement("select"); select.className="role-select"; select.dataset.i=i; select.disabled=isBlocked;
+          ROLE_OPTIONS.forEach(opt=>{ const o=document.createElement("option"); o.value=opt.value; o.textContent=opt.label; o.setAttribute("data-color",opt.color); if(opt.value===entry.role) o.selected=true; select.appendChild(o); });
+          const chev=document.createElement("span"); chev.className="chev"; chev.textContent="▾";
+          selectWrap.appendChild(select); selectWrap.appendChild(chev);
           row.appendChild(input); row.appendChild(selectWrap);
           wrap.appendChild(row);
-
           const applyColor=()=>{
             const opt=select.options[select.selectedIndex];
             const color=opt.getAttribute("data-color")||"#202741";
@@ -3702,61 +3224,28 @@
             select.style.color=dark?"#eef2ff":"#0b0f1d";
             chev.style.color=dark?"#eef2ff":"#0b0f1d";
           };
-
-          input.addEventListener("input",()=>{
-            store[key].entries[i].name=input.value;
-            refreshCopyBox();
-          });
-          
-          select.addEventListener("change",()=>{
-            store[key].entries[i].role=select.value;
-            applyColor(); refreshCopyBox();
-          });
-          
+          input.addEventListener("input",()=>{ store[key].entries[i].name=input.value; refreshCopyBox(); });
+          select.addEventListener("change",()=>{ store[key].entries[i].role=select.value; applyColor(); refreshCopyBox(); });
           applyColor();
         }
-
-        typeSelect.onchange=()=>{
-          store[key].type=typeSelect.value;
-          store[key].off=true;
-          saveStore(); refreshCopyBox(); renderCalendar();
-          schedulePush();
-        };
-
+        typeSelect.onchange=()=>{ store[key].type=typeSelect.value; store[key].off=true; saveStore(); refreshCopyBox(); renderCalendar(); schedulePush(); };
         refreshCopyBox();
         $("#backdrop").style.display="grid";
       }
 
-      function closeCalendarModal(){
-        $("#backdrop").style.display="none";
-        activeKey=null;
-      }
+      function closeCalendarModal(){ $("#backdrop").style.display="none"; activeKey=null; }
       $("#cancel").onclick=closeCalendarModal;
-
       $("#save").onclick=()=>{
         if(!activeKey) return;
-        if(store[activeKey].blocked){
-          saveStore(); closeCalendarModal(); renderCalendar();
-          schedulePush();
-          return;
-        }
-
+        if(store[activeKey].blocked){ saveStore(); closeCalendarModal(); renderCalendar(); schedulePush(); return; }
         const inputs=[...$("#modalNames").querySelectorAll("input")];
         const selects=[...$("#modalNames").querySelectorAll("select")];
-
-        inputs.forEach(inp=>{
-          const i=Number(inp.dataset.i); store[activeKey].entries[i].name=inp.value;
-        });
-        selects.forEach(sel=>{
-          const i=Number(sel.dataset.i); store[activeKey].entries[i].role=sel.value;
-        });
-
+        inputs.forEach(inp=>{ const i=Number(inp.dataset.i); store[activeKey].entries[i].name=inp.value; });
+        selects.forEach(sel=>{ const i=Number(sel.dataset.i); store[activeKey].entries[i].role=sel.value; });
         store[activeKey].off=true;
         store[activeKey].type=store[activeKey].type||"OFF";
-        saveStore(); closeCalendarModal(); renderCalendar();
-        schedulePush();
+        saveStore(); closeCalendarModal(); renderCalendar(); schedulePush();
       };
-
       $("#deleteOff").onclick=()=>{
         if(!activeKey) return;
         if(confirm("Hapus seluruh jadwal di tanggal ini?")){
@@ -3768,10 +3257,9 @@
           if(!store[key].blocked) delete store[key];
           saveStore(); closeCalendarModal(); renderCalendar(); schedulePush();
           logDelete('HAPUS_JADWAL_OFF', `Tanggal: ${key}`);
-          toast(`Jadwal dihapus oleh ${userEmail}`);
+          toast(`Jadwal dihapus oleh ADMIN`);
         }
       };
-
       $("#toggleBlock").onclick=()=>{
         if(!activeKey) return;
         store[activeKey]=store[activeKey]||{};
@@ -3779,282 +3267,100 @@
         if(store[activeKey].blocked){
           store[activeKey].off=false;
           store[activeKey].entries=Array.from({length:10},()=>({name:"",role:""}));
-        } else {
-          store[activeKey].type=store[activeKey].type||"OFF";
-        }
-        saveStore(); closeCalendarModal(); renderCalendar();
-        schedulePush();
+        } else { store[activeKey].type=store[activeKey].type||"OFF"; }
+        saveStore(); closeCalendarModal(); renderCalendar(); schedulePush();
       };
-
-      $("#copyBtn").onclick = async ()=>{
-        const txt=$("#copyBox").value.trim();
-        if(!txt){ toast("Belum ada nama"); return; }
-        try{
-          await navigator.clipboard.writeText(txt);
-          toast("Tersalin ke clipboard");
-        }catch(e){
-          toast("Gagal auto copy, silakan copy manual");
-          $("#copyBox").focus(); $("#copyBox").select();
-        }
-      };
-
-      function fmtDateID(iso){
-        if(!iso) return "-";
-        const d=new Date(iso);
-        return d.toLocaleDateString("id-ID",{day:"2-digit",month:"long",year:"numeric"});
-      }
-
+      $("#copyBtn").onclick = async ()=>{ const txt=$("#copyBox").value.trim(); if(!txt){ toast("Belum ada nama"); return; } try{ await navigator.clipboard.writeText(txt); toast("Tersalin ke clipboard"); }catch(e){ toast("Gagal auto copy, silakan copy manual"); $("#copyBox").focus(); $("#copyBox").select(); } };
+      function fmtDateID(iso){ if(!iso) return "-"; const d=new Date(iso); return d.toLocaleDateString("id-ID",{day:"2-digit",month:"long",year:"numeric"}); }
       function renderCutiTable(){
         const body=$("#cutiTableBody");
         body.innerHTML="";
-
-        if(cutiStore.length===0){
-          body.innerHTML = '点数<td colspan="4" style="padding:16px; opacity:.7;">Belum ada data cuti.点数点数';
-          return;
-        }
-
+        if(cutiStore.length===0){ body.innerHTML = '似乎<td colspan="4" style="padding:16px; opacity:.7;">Belum ada data cuti. </td> </tr>'; return; }
         cutiStore.forEach((row,idx)=>{
           const tr=document.createElement("tr");
-          tr.innerHTML=
-            '<td class="name">'+(row.name||"-")+'点数'+
-            '<td>'+fmtDateID(row.start)+'点数'+
-            '<td>'+fmtDateID(row.end)+'点数'+
-            '<td>'+
-              '<button class="info-btn" data-idx="'+idx+'">Detail</button>'+
-              (!isLocked? '<button class="del-btn" data-del="'+idx+'">Hapus</button>' : '')+
-            '</td>';
+          tr.innerHTML='<td class="name">'+(row.name||"-")+'</td><td>'+fmtDateID(row.start)+'</td><td>'+fmtDateID(row.end)+'</td><td><button class="info-btn" data-idx="'+idx+'">Detail</button>'+(isLocked?'':'<button class="del-btn" data-del="'+idx+'">Hapus</button>')+'</td>';
           body.appendChild(tr);
         });
-
-        body.querySelectorAll(".info-btn").forEach(btn=>{
-          btn.onclick=()=>{
-            const idx=Number(btn.dataset.idx);
-            openCutiModal(idx);
-          };
-        });
-
-        body.querySelectorAll(".del-btn").forEach(btn=>{
-          btn.onclick=()=>{
-            if(isLocked) return;
-            const idx=Number(btn.dataset.del);
-            if(confirm("Hapus data CUTI ini?")){
-              const deletedData = cutiStore[idx];
-              cutiStore.splice(idx,1);
-              saveCuti(); renderCutiTable(); schedulePush();
-              logDelete('HAPUS_CUTI', `Nama: ${deletedData.name}, Tanggal: ${deletedData.start} - ${deletedData.end}`);
-              toast(`Data CUTI dihapus oleh ${userEmail}`);
-            }
-          };
-        });
+        body.querySelectorAll(".info-btn").forEach(btn=>{ btn.onclick=()=>{ const idx=Number(btn.dataset.idx); openCutiModal(idx); }; });
+        body.querySelectorAll(".del-btn").forEach(btn=>{ btn.onclick=()=>{ if(isLocked) return; const idx=Number(btn.dataset.del); if(confirm("Hapus data CUTI ini?")){ const deletedData=cutiStore[idx]; cutiStore.splice(idx,1); saveCuti(); renderCutiTable(); schedulePush(); logDelete('HAPUS_CUTI',`Nama: ${deletedData.name}, Tanggal: ${deletedData.start} - ${deletedData.end}`); toast(`Data CUTI dihapus oleh ADMIN`); } }; });
       }
-
       function openCutiModal(idx=null){
-        if(idx===null && isLocked){
-          toast("Terkunci. Tidak bisa tambah CUTI.");
-          return;
-        }
+        if(idx===null && isLocked){ toast("Terkunci. Tidak bisa tambah CUTI."); return; }
         editingCutiIndex = idx;
         $("#cutiModalTitle").textContent = idx===null ? "Tambah CUTI" : "Detail / Edit CUTI";
         $("#cutiDeleteBtn").style.display = (!isLocked && idx!==null) ? "inline-block" : "none";
-
         const data = idx===null ? {name:"",start:"",end:"",info:""} : cutiStore[idx];
-
-        $("#cutiName").value = data.name||"";
-        $("#cutiStart").value = data.start||"";
-        $("#cutiEnd").value = data.end||"";
-        $("#cutiInfo").value = data.info||"";
-
-        ["cutiName","cutiStart","cutiEnd","cutiInfo","cutiSaveBtn"].forEach(id=>{
-          $("#"+id).disabled = isLocked && idx!==null;
-        });
-
+        $("#cutiName").value = data.name||""; $("#cutiStart").value = data.start||""; $("#cutiEnd").value = data.end||""; $("#cutiInfo").value = data.info||"";
+        ["cutiName","cutiStart","cutiEnd","cutiInfo","cutiSaveBtn"].forEach(id=>{ $("#"+id).disabled = isLocked && idx!==null; });
         $("#cutiBackdrop").style.display="grid";
       }
-
-      function closeCutiModal(){
-        $("#cutiBackdrop").style.display="none";
-        editingCutiIndex=null;
-      }
+      function closeCutiModal(){ $("#cutiBackdrop").style.display="none"; editingCutiIndex=null; }
       $("#cutiCancelBtn").onclick=closeCutiModal;
       $("#addCutiBtn").onclick=()=>openCutiModal(null);
-
       $("#cutiSaveBtn").onclick=()=>{
         if(isLocked) return;
-
-        const data={
-          name: $("#cutiName").value.trim(),
-          start: $("#cutiStart").value,
-          end: $("#cutiEnd").value,
-          info: $("#cutiInfo").value.trim()
-        };
-        if(!data.name || !data.start || !data.end){
-          toast("Nama & tanggal wajib diisi");
-          return;
-        }
-
-        if(editingCutiIndex===null){
-          cutiStore.push(data);
-          toast("CUTI ditambahkan");
-        } else {
-          cutiStore[editingCutiIndex]=data;
-          toast("CUTI diupdate");
-        }
-
-        saveCuti(); renderCutiTable(); closeCutiModal();
-        schedulePush();
+        const data={ name: $("#cutiName").value.trim(), start: $("#cutiStart").value, end: $("#cutiEnd").value, info: $("#cutiInfo").value.trim() };
+        if(!data.name || !data.start || !data.end){ toast("Nama & tanggal wajib diisi"); return; }
+        if(editingCutiIndex===null) cutiStore.push(data);
+        else cutiStore[editingCutiIndex]=data;
+        saveCuti(); renderCutiTable(); closeCutiModal(); schedulePush();
       };
-
       $("#cutiDeleteBtn").onclick=()=>{
         if(isLocked || editingCutiIndex===null) return;
         if(confirm("Hapus data CUTI ini?")){
-          const deletedData = cutiStore[editingCutiIndex];
+          const deletedData=cutiStore[editingCutiIndex];
           cutiStore.splice(editingCutiIndex,1);
           saveCuti(); renderCutiTable(); closeCutiModal(); schedulePush();
-          logDelete('HAPUS_CUTI', `Nama: ${deletedData.name}, Tanggal: ${deletedData.start} - ${deletedData.end}`);
-          toast("Data CUTI dihapus oleh " + userEmail);
+          logDelete('HAPUS_CUTI',`Nama: ${deletedData.name}, Tanggal: ${deletedData.start} - ${deletedData.end}`);
+          toast("Data CUTI dihapus oleh ADMIN");
         }
       };
-
-      $("#exportCutiBtn").onclick=async ()=>{
-        const txt = cutiStore.map((r,i)=>(
-          (i+1)+". "+r.name+"\n   "+fmtDateID(r.start)+" → "+fmtDateID(r.end)+"\n   "+(r.info||"-")
-        )).join("\n\n");
-        try{
-          await navigator.clipboard.writeText(txt||"Belum ada data cuti");
-          toast("Data CUTI dicopy");
-        }catch(e){
-          toast("Gagal copy, blok manual");
-          alert(txt);
-        }
-      };
-
+      $("#exportCutiBtn").onclick=async ()=>{ const txt=cutiStore.map((r,i)=>(i+1)+". "+r.name+"\n   "+fmtDateID(r.start)+" → "+fmtDateID(r.end)+"\n   "+(r.info||"-")).join("\n\n"); try{ await navigator.clipboard.writeText(txt||"Belum ada data cuti"); toast("Data CUTI dicopy"); }catch(e){ toast("Gagal copy, blok manual"); alert(txt); } };
       function seatLabel(i){ return String(i + 1); }
-
       let deleteSeatMode = false;
-      function updateDeleteSeatUI(){
-        const b = $("#toggleDeleteSeatBtn");
-        b.textContent = deleteSeatMode ? "🧽 MODE HAPUS: ON" : "🧽 MODE HAPUS: OFF";
-        b.className = deleteSeatMode ? "btn-danger" : "btn-amber";
-      }
-
-      $("#toggleDeleteSeatBtn").onclick = () => {
-        if(isLocked){ toast("Terkunci. Tidak bisa hapus seat."); return; }
-        deleteSeatMode = !deleteSeatMode;
-        updateDeleteSeatUI();
-        toast(deleteSeatMode ? "Klik seat untuk hapus (kotak hilang)" : "Mode hapus dimatikan");
-      };
-
-      function adjustColor(hex, percent) {
-        const num = parseInt(hex.replace("#", ""), 16);
-        const amt = Math.round(2.55 * percent);
-        const R = (num >> 16) + amt;
-        const G = (num >> 8 & 0x00FF) + amt;
-        const B = (num & 0x0000FF) + amt;
-        
-        return "#" + (
-          0x1000000 +
-          (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
-          (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
-          (B < 255 ? B < 1 ? 0 : B : 255)
-        ).toString(16).slice(1);
-      }
-
-      function getDivisiLabel(value) {
-        const divisi = DIVISI_OPTIONS.find(d => d.value === value) || 
-                       DIVISI_OPTIONS.find(d => d.label === value);
-        return divisi ? divisi.label : value;
-      }
-
+      function updateDeleteSeatUI(){ const b=$("#toggleDeleteSeatBtn"); b.textContent = deleteSeatMode ? "🧽 MODE HAPUS: ON" : "🧽 MODE HAPUS: OFF"; b.className = deleteSeatMode ? "btn-danger" : "btn-amber"; }
+      $("#toggleDeleteSeatBtn").onclick = () => { if(isLocked){ toast("Terkunci. Tidak bisa hapus seat."); return; } deleteSeatMode = !deleteSeatMode; updateDeleteSeatUI(); toast(deleteSeatMode ? "Klik seat untuk hapus (kotak hilang)" : "Mode hapus dimatikan"); };
+      function adjustColor(hex, percent) { const num=parseInt(hex.replace("#",""),16); const amt=Math.round(2.55*percent); const R=(num>>16)+amt; const G=(num>>8&0x00FF)+amt; const B=(num&0x0000FF)+amt; return "#"+(0x1000000+(R<255?R<1?0:R:255)*0x10000+(G<255?G<1?0:G:255)*0x100+(B<255?B<1?0:B:255)).toString(16).slice(1); }
+      function getDivisiLabel(value){ const divisi=DIVISI_OPTIONS.find(d=>d.value===value)||DIVISI_OPTIONS.find(d=>d.label===value); return divisi?divisi.label:value; }
       function renderBagan(){
         ensureBaganSize();
-
         const board=$("#baganBoard");
         const cols = BAGAN_COLS();
         board.style.gridTemplateColumns = "repeat("+cols+", 100px)";
         board.innerHTML="";
-
         baganStore.forEach((seat,i)=>{
           const div=document.createElement("div");
           const isActive = seat.active !== false;
-          
-          const divisiInfo = DIVISI_OPTIONS.find(d => d.value === seat.divisi) || 
-                            DIVISI_OPTIONS.find(d => d.label === seat.divisi);
+          const divisiInfo = DIVISI_OPTIONS.find(d=>d.value===seat.divisi)||DIVISI_OPTIONS.find(d=>d.label===seat.divisi);
           const divisiColor = divisiInfo ? divisiInfo.color : "#34495e";
           const textColor = isDark(divisiColor) ? "#ffffff" : "#000000";
-
-          div.className =
-            "seat" +
-            (!isActive ? " hidden" : (!seat.name ? " empty" : ""));
-
+          div.className = "seat" + (!isActive ? " hidden" : (!seat.name ? " empty" : ""));
           div.draggable = !isLocked && isActive;
           div.dataset.i=i;
-
-          if (isActive && seat.name && seat.divisi) {
-            div.style.background = `linear-gradient(135deg, ${divisiColor} 0%, ${adjustColor(divisiColor, -20)} 100%)`;
-            div.style.color = textColor;
-            div.style.border = `2px solid ${adjustColor(divisiColor, 30)}`;
-            div.style.boxShadow = `0 4px 15px ${divisiColor}40`;
-          } else if (isActive && seat.name) {
-            div.style.background = "linear-gradient(135deg, #2c3e50 0%, #34495e 100%)";
-            div.style.color = "#ffffff";
-          } else if (isActive) {
-            div.style.background = "linear-gradient(135deg, #7f8c8d 0%, #95a5a6 100%)";
-            div.style.color = "#ecf0f1";
-          }
-
+          if (isActive && seat.name && seat.divisi) { div.style.background = `linear-gradient(135deg, ${divisiColor} 0%, ${adjustColor(divisiColor, -20)} 100%)`; div.style.color = textColor; div.style.border = `2px solid ${adjustColor(divisiColor, 30)}`; div.style.boxShadow = `0 4px 15px ${divisiColor}40`; }
+          else if (isActive && seat.name) { div.style.background = "linear-gradient(135deg, #2c3e50 0%, #34495e 100%)"; div.style.color = "#ffffff"; }
+          else if (isActive) { div.style.background = "linear-gradient(135deg, #7f8c8d 0%, #95a5a6 100%)"; div.style.color = "#ecf0f1"; }
           if (isActive) {
-            if (seat.name) {
-              div.innerHTML = `
-                <small>${seatLabel(i)}</small>
-                <div style="font-weight: 900; font-size: 11px; margin-top: 3px; overflow: hidden; text-overflow: ellipsis;">
-                  ${seat.name}
-                </div>
-                ${seat.divisi ? `<div style="font-size: 9px; opacity: 0.9; margin-top: 2px; font-weight: 700;">${getDivisiLabel(seat.divisi)}</div>` : ''}
-              `;
-            } else {
-              div.innerHTML = `<small>${seatLabel(i)}</small>-`;
-            }
+            if (seat.name) { div.innerHTML = `<small>${seatLabel(i)}</small><div style="font-weight: 900; font-size: 11px; margin-top: 3px; overflow: hidden; text-overflow: ellipsis;">${seat.name}</div>${seat.divisi ? `<div style="font-size: 9px; opacity: 0.9; margin-top: 2px; font-weight: 700;">${getDivisiLabel(seat.divisi)}</div>` : ''}`; }
+            else { div.innerHTML = `<small>${seatLabel(i)}</small>-`; }
           }
-
           div.addEventListener("click", ()=>{
-            if(isLocked){
-              toast("Terkunci. Tidak bisa edit BAGAN.");
-              return;
-            }
-
+            if(isLocked){ toast("Terkunci. Tidak bisa edit BAGAN."); return; }
             if(deleteSeatMode){
-              if(!baganStore[i].active){
-                toast("Seat "+seatLabel(i)+" sudah dihapus");
-                return;
-              }
+              if(!baganStore[i].active){ toast("Seat "+seatLabel(i)+" sudah dihapus"); return; }
               if(!confirm("Hapus seat "+seatLabel(i)+"? Kotak akan hilang.")) return;
-
               const deletedSeat = { ...baganStore[i] };
-              baganStore[i].name = "";
-              baganStore[i].divisi = "";
-              baganStore[i].active = false;
+              baganStore[i].name = ""; baganStore[i].divisi = ""; baganStore[i].active = false;
               saveBagan(); renderBagan(); schedulePush();
               logDelete('HAPUS_SEAT_BAGAN', `Nomor seat: ${i+1}, Nama sebelumnya: ${deletedSeat.name}`);
-              toast(`Seat ${seatLabel(i)} dihapus oleh ${userEmail}`);
+              toast(`Seat ${seatLabel(i)} dihapus oleh ADMIN`);
               return;
             }
-
             openBaganSeatModal(i);
           });
-
-          div.addEventListener("dragstart", e=>{
-            div.classList.add("dragging");
-            e.dataTransfer.setData("text/plain", String(i));
-          });
-          div.addEventListener("dragend", ()=>{
-            div.classList.remove("dragging");
-            board.querySelectorAll(".seat").forEach(s=>s.classList.remove("drop-target"));
-          });
-          div.addEventListener("dragover", e=>{
-            if(isLocked || !isActive) return;
-            e.preventDefault();
-            div.classList.add("drop-target");
-          });
+          div.addEventListener("dragstart", e=>{ div.classList.add("dragging"); e.dataTransfer.setData("text/plain", String(i)); });
+          div.addEventListener("dragend", ()=>{ div.classList.remove("dragging"); board.querySelectorAll(".seat").forEach(s=>s.classList.remove("drop-target")); });
+          div.addEventListener("dragover", e=>{ if(isLocked || !isActive) return; e.preventDefault(); div.classList.add("drop-target"); });
           div.addEventListener("dragleave", ()=> div.classList.remove("drop-target"));
           div.addEventListener("drop", e=>{
             if(isLocked || !isActive) return;
@@ -4065,1645 +3371,201 @@
             const tmp = baganStore[from];
             baganStore[from]=baganStore[to];
             baganStore[to]=tmp;
-            saveBagan(); renderBagan();
-            schedulePush();
+            saveBagan(); renderBagan(); schedulePush();
             toast("Swap seat "+seatLabel(from)+" ↔ "+seatLabel(to));
           });
-
           board.appendChild(div);
         });
-        
         updateUndoRedoButtons();
       }
-
       function openBaganSeatModal(index) {
         const seat = baganStore[index];
-        
-        const modalHTML = `
-          <div class="modal-backdrop" id="baganSeatModal">
-            <div class="modal" style="grid-template-columns:1fr; max-width:500px;">
-              <div>
-                <h3>Edit Seat ${seatLabel(index)}</h3>
-                <div class="sub">Isi nama dan pilih divisi</div>
-                
-                <div style="margin:15px 0;">
-                  <label style="display:block; margin-bottom:5px; font-weight:700; font-size:12px;">Nama Staff</label>
-                  <input type="text" id="baganSeatName" placeholder="Masukkan nama..." 
-                         style="width:100%; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:#fff;"
-                         value="${seat.name || ''}">
-                </div>
-                
-                <div style="margin:15px 0;">
-                  <label style="display:block; margin-bottom:5px; font-weight:700; font-size:12px;">Divisi</label>
-                  <div class="select-wrap" style="margin-top:6px;">
-                    <select id="baganSeatDivisi" class="role-select" style="width:100%;">
-                      <option value="">Pilih Divisi</option>
-                      ${DIVISI_OPTIONS.map(div => `
-                        <option value="${div.value}" ${(seat.divisi === div.value || seat.divisi === div.label) ? 'selected' : ''}
-                                style="background:${div.color}; color:${isDark(div.color) ? '#fff' : '#000'}">
-                          ${div.label}
-                        </option>
-                      `).join('')}
-                    </select>
-                    <span class="chev">▾</span>
-                  </div>
-                </div>
-                
-                <div class="modal-actions">
-                  <div class="right-actions">
-                    <button id="baganSeatCancel" class="btn-danger">Batal</button>
-                    <button id="baganSeatSave" class="btn-green">Simpan</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        `;
-        
+        const modalHTML = `<div class="modal-backdrop" id="baganSeatModal"><div class="modal" style="grid-template-columns:1fr; max-width:500px;"><div><h3>Edit Seat ${seatLabel(index)}</h3><div class="sub">Isi nama dan pilih divisi</div><div style="margin:15px 0;"><label style="display:block; margin-bottom:5px; font-weight:700; font-size:12px;">Nama Staff</label><input type="text" id="baganSeatName" placeholder="Masukkan nama..." style="width:100%; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:#fff;" value="${seat.name || ''}"></div><div style="margin:15px 0;"><label style="display:block; margin-bottom:5px; font-weight:700; font-size:12px;">Divisi</label><div class="select-wrap" style="margin-top:6px;"><select id="baganSeatDivisi" class="role-select" style="width:100%;"><option value="">Pilih Divisi</option>${DIVISI_OPTIONS.map(div=>`<option value="${div.value}" ${(seat.divisi === div.value || seat.divisi === div.label) ? 'selected' : ''} style="background:${div.color}; color:${isDark(div.color)?'#fff':'#000'}">${div.label}</option>`).join('')}</select><span class="chev">▾</span></div></div><div class="modal-actions"><div class="right-actions"><button id="baganSeatCancel" class="btn-danger">Batal</button><button id="baganSeatSave" class="btn-green">Simpan</button></div></div></div></div></div>`;
         const modalContainer = document.createElement('div');
         modalContainer.innerHTML = modalHTML;
         document.body.appendChild(modalContainer);
-        
         const modal = document.getElementById('baganSeatModal');
         modal.style.display = 'grid';
-        
-        document.getElementById('baganSeatCancel').onclick = () => {
-          modal.remove();
-        };
-        
+        document.getElementById('baganSeatCancel').onclick = () => { modal.remove(); };
         document.getElementById('baganSeatSave').onclick = () => {
           saveBaganToUndoStack();
-          
           const name = document.getElementById('baganSeatName').value.trim();
           const divisi = document.getElementById('baganSeatDivisi').value;
-          
           baganStore[index].name = name;
           baganStore[index].divisi = divisi;
           baganStore[index].active = true;
-          
-          saveBagan();
-          renderBagan();
-          schedulePush();
-          modal.remove();
-          
+          saveBagan(); renderBagan(); schedulePush(); modal.remove();
           toast(`Seat ${seatLabel(index)} ${name ? 'diupdate' : 'dikosongkan'}`);
         };
-        
         const select = document.getElementById('baganSeatDivisi');
-        select.addEventListener('change', function() {
-          const selectedOption = this.options[this.selectedIndex];
-          if (selectedOption.value) {
-            const color = DIVISI_OPTIONS.find(d => d.value === selectedOption.value)?.color || '#34495e';
-            this.style.background = color;
-            this.style.color = isDark(color) ? '#fff' : '#000';
-          } else {
-            this.style.background = '#202741';
-            this.style.color = '#eef2ff';
-          }
-        });
-        
+        select.addEventListener('change', function() { const selectedOption = this.options[this.selectedIndex]; if (selectedOption.value) { const color = DIVISI_OPTIONS.find(d=>d.value===selectedOption.value)?.color||'#34495e'; this.style.background = color; this.style.color = isDark(color)?'#fff':'#000'; } else { this.style.background = '#202741'; this.style.color = '#eef2ff'; } });
         select.dispatchEvent(new Event('change'));
       }
-
-      function resetBagan() {
-          if(isLocked){ 
-              toast("Terkunci. Hanya bos yang bisa reset bagan."); 
-              return; 
-          }
-          
-          if(!confirm("Reset seluruh bagan ke default?\n\nSemua nama akan dihapus, bagan dikembalikan ke 10 baris x 20 kolom.\n\nAksi ini TIDAK BISA di-undo!")){
-              return;
-          }
-          
-          const oldSeats = baganStore.map(s => ({ name: s.name, divisi: s.divisi }));
-          baganMeta = { rows: 10, cols: 20 };
-          baganStore = Array.from({length: 200}, ()=>({name:"", active:true, divisi: ""}));
-          saveBagan(); renderBagan(); schedulePush();
-          logDelete('RESET_BAGAN', `Menghapus semua data bagan. Seats sebelumnya: ${JSON.stringify(oldSeats)}`);
-          toast("Bagan direset ke default (10 baris x 20 kolom) oleh " + userEmail);
-      }
-
+      function resetBagan() { if(isLocked){ toast("Terkunci. Hanya bos yang bisa reset bagan."); return; } if(!confirm("Reset seluruh bagan ke default?\n\nSemua nama akan dihapus, bagan dikembalikan ke 10 baris x 20 kolom.\n\nAksi ini TIDAK BISA di-undo!")) return; const oldSeats=baganStore.map(s=>({name:s.name,divisi:s.divisi})); baganMeta={rows:10,cols:20}; baganStore=Array.from({length:200},()=>({name:"",active:true,divisi:""})); saveBagan(); renderBagan(); schedulePush(); logDelete('RESET_BAGAN',`Menghapus semua data bagan. Seats sebelumnya: ${JSON.stringify(oldSeats)}`); toast("Bagan direset ke default (10 baris x 20 kolom) oleh ADMIN"); }
       $("#resetBaganBtn").onclick = resetBagan;
-
-      $("#addRowBtn").onclick = () => {
-        handleBaganChange("add_row", () => {
-          baganMeta.rows += 1;
-          ensureBaganSize();
-          saveBagan();
-          renderBagan();
-          schedulePush();
-          toast("Baris ditambah. Total: " + baganMeta.rows);
-        });
-      };
-
-      $("#addColBtn").onclick = () => {
-        handleBaganChange("add_col", () => {
-          baganMeta.cols += 1;
-          ensureBaganSize();
-          saveBagan();
-          renderBagan();
-          schedulePush();
-          toast("Kolom ditambah. Total: " + baganMeta.cols);
-        });
-      };
-
-      $("#removeColBtn").onclick = () => {
-        handleBaganChange("remove_col", () => {
-          const cols = baganMeta.cols;
-          const rows = baganMeta.rows;
-          if (cols <= 1) { toast("Kolom minimal 1"); return; }
-
-          const input = prompt(
-            "Mau hapus kolom ke berapa?\n\nTotal kolom sekarang: " + cols + "\nIsi angka 1 - " + cols,
-            String(cols)
-          );
-          if (input === null) return;
-
-          const colToRemove = Number(input);
-          if (!Number.isInteger(colToRemove) || colToRemove < 1 || colToRemove > cols) {
-            toast("Nomor kolom tidak valid");
-            return;
-          }
-
-          if (!confirm("Yakin hapus kolom ke-" + colToRemove + "?\nSemua nama di kolom ini akan hilang.")) return;
-
-          const oldCols = cols;
-          const removeIndexInRow = colToRemove - 1;
-
-          const deletedSeats = [];
-          for (let r = 0; r < rows; r++) {
-            const idx = r * oldCols + removeIndexInRow;
-            if (idx < baganStore.length) {
-              deletedSeats.push({
-                row: r+1,
-                col: colToRemove,
-                seat: { ...baganStore[idx] }
-              });
-            }
-          }
-
-          for (let r = rows - 1; r >= 0; r--) {
-            const idx = r * oldCols + removeIndexInRow;
-            baganStore.splice(idx, 1);
-          }
-
-          baganMeta.cols -= 1;
-          ensureBaganSize();
-          saveBagan(); renderBagan(); schedulePush();
-          logDelete('HAPUS_KOLOM_BAGAN', `Kolom ke-${colToRemove} dihapus. Data: ${JSON.stringify(deletedSeats)}`);
-          toast("Kolom ke-" + colToRemove + " dihapus oleh " + userEmail);
-        });
-      };
-
-      $("#exportBaganBtn").onclick=async ()=>{
-        const lines = baganStore.map((s,i)=>{
-          const seatNum = seatLabel(i);
-          const name = s.name || "-";
-          const divisi = s.divisi ? ` (${getDivisiLabel(s.divisi)})` : "";
-          const status = s.active === false ? " [DELETED]" : "";
-          return `${seatNum}: ${name}${divisi}${status}`;
-        });
-        
-        const txt = lines.join("\n");
-        try{
-          await navigator.clipboard.writeText(txt);
-          toast("BAGAN dicopy");
-        }catch(e){
-          prompt("Copy manual (CTRL+C):", txt);
-          toast("Gagal auto copy, copy manual");
-        }
-      };
-
+      $("#addRowBtn").onclick = () => { handleBaganChange("add_row",()=>{ baganMeta.rows+=1; ensureBaganSize(); saveBagan(); renderBagan(); schedulePush(); toast("Baris ditambah. Total: "+baganMeta.rows); }); };
+      $("#addColBtn").onclick = () => { handleBaganChange("add_col",()=>{ baganMeta.cols+=1; ensureBaganSize(); saveBagan(); renderBagan(); schedulePush(); toast("Kolom ditambah. Total: "+baganMeta.cols); }); };
+      $("#removeColBtn").onclick = () => { handleBaganChange("remove_col",()=>{ const cols=baganMeta.cols, rows=baganMeta.rows; if(cols<=1){ toast("Kolom minimal 1"); return; } const input=prompt("Mau hapus kolom ke berapa?\n\nTotal kolom sekarang: "+cols+"\nIsi angka 1 - "+cols,String(cols)); if(input===null) return; const colToRemove=Number(input); if(!Number.isInteger(colToRemove)||colToRemove<1||colToRemove>cols){ toast("Nomor kolom tidak valid"); return; } if(!confirm("Yakin hapus kolom ke-"+colToRemove+"?\nSemua nama di kolom ini akan hilang.")) return; const oldCols=cols; const removeIndexInRow=colToRemove-1; const deletedSeats=[]; for(let r=0;r<rows;r++){ const idx=r*oldCols+removeIndexInRow; if(idx<baganStore.length){ deletedSeats.push({row:r+1,col:colToRemove,seat:{...baganStore[idx]}}); } } for(let r=rows-1;r>=0;r--){ const idx=r*oldCols+removeIndexInRow; baganStore.splice(idx,1); } baganMeta.cols-=1; ensureBaganSize(); saveBagan(); renderBagan(); schedulePush(); logDelete('HAPUS_KOLOM_BAGAN',`Kolom ke-${colToRemove} dihapus. Data: ${JSON.stringify(deletedSeats)}`); toast("Kolom ke-"+colToRemove+" dihapus oleh ADMIN"); }); };
+      $("#exportBaganBtn").onclick=async ()=>{ const lines=baganStore.map((s,i)=>{ const seatNum=seatLabel(i); const name=s.name||"-"; const divisi=s.divisi?` (${getDivisiLabel(s.divisi)})`:""; const status=s.active===false?" [DELETED]":""; return `${seatNum}: ${name}${divisi}${status}`; }); const txt=lines.join("\n"); try{ await navigator.clipboard.writeText(txt); toast("BAGAN dicopy"); }catch(e){ prompt("Copy manual (CTRL+C):",txt); toast("Gagal auto copy, copy manual"); } };
       function renderBarisKolomTable() {
         const container = $("#barisKolomTableContainer");
         if (!container) return;
-        
         const kolomNames = ["LIVE CHAT", "WHATSAPP", "DEPOSIT", "FINANCE", "WHITDRAW", "DESIGN"];
-        
-        let html = `
-            <table class="baris-kolom-excel-table">
-                <thead>
-                    <tr>
-                        <th>NO</th>
-        `;
-        
-        for (let i = 0; i < 6; i++) {
-            html += `
-                <th>
-                    <div class="kolom-header">
-                        <span class="kolom-title">${kolomNames[i]}</span>
-                        <button class="copy-kolom-excel-btn" data-kolom="${i}">COPY</button>
-                    </div>
-                </th>
-            `;
-        }
-        
+        let html = `<table class="baris-kolom-excel-table"><thead><tr><th>NO</th>`;
+        for (let i = 0; i < 6; i++) html += `<th><div class="kolom-header"><span class="kolom-title">${kolomNames[i]}</span><button class="copy-kolom-excel-btn" data-kolom="${i}">COPY</button></div></th>`;
         html += `</tr></thead><tbody>`;
-        
         for (let row = 0; row < 31; row++) {
-            html += `<tr>`;
-            html += `<td>${row+1}</td>`;
-            
-            for (let col = 0; col < 6; col++) {
-                const data = barisKolomExcelData[row]?.[col] || { 
-                    nama1: "", 
-                    nama2: "", 
-                    nama3: "", 
-                    nama4: "",
-                    tanggal: ""
-                };
-                
-                html += `
-                    <td>
-                        <div class="excel-input-group">
-                            <input type="text" class="excel-nama-input" data-row="${row}" data-col="${col}" data-type="nama1" 
-                                   value="${data.nama1}" placeholder="Nama 1">
-                            <input type="text" class="excel-nama-input" data-row="${row}" data-col="${col}" data-type="nama2" 
-                                   value="${data.nama2}" placeholder="Nama 2">
-                            <input type="text" class="excel-nama-input" data-row="${row}" data-col="${col}" data-type="nama3" 
-                                   value="${data.nama3}" placeholder="Nama 3">
-                            <input type="text" class="excel-nama-input" data-row="${row}" data-col="${col}" data-type="nama4" 
-                                   value="${data.nama4}" placeholder="Nama 4">
-                            
-                            <div class="excel-date-container">
-                                <input type="date" class="excel-date-input" data-row="${row}" data-col="${col}" data-type="tanggal" 
-                                       value="${data.tanggal}">
-                            </div>
-                        </div>
-                    </td>
-                `;
-            }
-            
-            html += `</tr>`;
+          html += `<tr><td>${row+1}</td>`;
+          for (let col = 0; col < 6; col++) {
+            const data = barisKolomExcelData[row]?.[col] || { nama1: "", nama2: "", nama3: "", nama4: "", tanggal: "" };
+            html += `<td><div class="excel-input-group"><input type="text" class="excel-nama-input" data-row="${row}" data-col="${col}" data-type="nama1" value="${data.nama1}" placeholder="Nama 1"><input type="text" class="excel-nama-input" data-row="${row}" data-col="${col}" data-type="nama2" value="${data.nama2}" placeholder="Nama 2"><input type="text" class="excel-nama-input" data-row="${row}" data-col="${col}" data-type="nama3" value="${data.nama3}" placeholder="Nama 3"><input type="text" class="excel-nama-input" data-row="${row}" data-col="${col}" data-type="nama4" value="${data.nama4}" placeholder="Nama 4"><div class="excel-date-container"><input type="date" class="excel-date-input" data-row="${row}" data-col="${col}" data-type="tanggal" value="${data.tanggal}"></div></div></td>`;
+          }
+          html += `</tr>`;
         }
-        
         html += `</tbody></table>`;
-        
         container.innerHTML = html;
-        
-        container.querySelectorAll(".excel-nama-input").forEach(input => {
-            input.addEventListener("input", (e) => {
-                const row = parseInt(e.target.dataset.row);
-                const col = parseInt(e.target.dataset.col);
-                const type = e.target.dataset.type;
-                
-                if (!barisKolomExcelData[row]) barisKolomExcelData[row] = [];
-                if (!barisKolomExcelData[row][col]) {
-                    barisKolomExcelData[row][col] = { 
-                        nama1: "", 
-                        nama2: "", 
-                        nama3: "", 
-                        nama4: "", 
-                        tanggal: "" 
-                    };
-                }
-                
-                barisKolomExcelData[row][col][type] = e.target.value;
-                
-                saveBarisKolomExcel();
-                schedulePush();
-            });
-        });
-        
-        container.querySelectorAll(".excel-date-input").forEach(input => {
-            input.addEventListener("change", (e) => {
-                const row = parseInt(e.target.dataset.row);
-                const col = parseInt(e.target.dataset.col);
-                const type = e.target.dataset.type;
-                
-                if (!barisKolomExcelData[row]) barisKolomExcelData[row] = [];
-                if (!barisKolomExcelData[row][col]) {
-                    barisKolomExcelData[row][col] = { 
-                        nama1: "", 
-                        nama2: "", 
-                        nama3: "", 
-                        nama4: "", 
-                        tanggal: "" 
-                    };
-                }
-                
-                barisKolomExcelData[row][col][type] = e.target.value;
-                
-                saveBarisKolomExcel();
-                schedulePush();
-            });
-        });
-        
-        container.querySelectorAll(".copy-kolom-excel-btn").forEach(btn => {
-            btn.addEventListener("click", async (e) => {
-                const kolom = parseInt(e.target.dataset.kolom);
-                let allNames = [];
-                
-                for (let row = 0; row < 31; row++) {
-                    const cell = barisKolomExcelData[row]?.[kolom] || { 
-                        nama1: "", 
-                        nama2: "", 
-                        nama3: "", 
-                        nama4: "" 
-                    };
-                    
-                    const cellNames = [
-                        cell.nama1?.trim(),
-                        cell.nama2?.trim(),
-                        cell.nama3?.trim(),
-                        cell.nama4?.trim()
-                    ].filter(n => n && n !== "");
-                    
-                    if (cellNames.length > 0) {
-                        allNames.push(cellNames.join(", "));
-                    }
-                }
-                
-                const text = allNames.join("\n");
-                if (!text) {
-                    toast("Kolom ini kosong");
-                    return;
-                }
-                
-                try {
-                    await navigator.clipboard.writeText(text);
-                    toast(`Kolom ${kolomNames[kolom]} dicopy: ${allNames.length} baris`);
-                } catch (err) {
-                    prompt("Copy manual (Ctrl+C):", text);
-                    toast("Gagal auto copy, copy manual");
-                }
-            });
-        });
+        container.querySelectorAll(".excel-nama-input").forEach(input => { input.addEventListener("input", (e) => { const row=parseInt(e.target.dataset.row); const col=parseInt(e.target.dataset.col); const type=e.target.dataset.type; if(!barisKolomExcelData[row]) barisKolomExcelData[row]=[]; if(!barisKolomExcelData[row][col]) barisKolomExcelData[row][col]={nama1:"",nama2:"",nama3:"",nama4:"",tanggal:""}; barisKolomExcelData[row][col][type]=e.target.value; saveBarisKolomExcel(); schedulePush(); }); });
+        container.querySelectorAll(".excel-date-input").forEach(input => { input.addEventListener("change", (e) => { const row=parseInt(e.target.dataset.row); const col=parseInt(e.target.dataset.col); const type=e.target.dataset.type; if(!barisKolomExcelData[row]) barisKolomExcelData[row]=[]; if(!barisKolomExcelData[row][col]) barisKolomExcelData[row][col]={nama1:"",nama2:"",nama3:"",nama4:"",tanggal:""}; barisKolomExcelData[row][col][type]=e.target.value; saveBarisKolomExcel(); schedulePush(); }); });
+        container.querySelectorAll(".copy-kolom-excel-btn").forEach(btn => { btn.addEventListener("click", async (e) => { const kolom=parseInt(e.target.dataset.kolom); let allNames=[]; for(let row=0;row<31;row++){ const cell=barisKolomExcelData[row]?.[kolom]||{nama1:"",nama2:"",nama3:"",nama4:""}; const cellNames=[cell.nama1?.trim(),cell.nama2?.trim(),cell.nama3?.trim(),cell.nama4?.trim()].filter(n=>n&&n!==""); if(cellNames.length>0) allNames.push(cellNames.join(", ")); } const text=allNames.join("\n"); if(!text){ toast("Kolom ini kosong"); return; } try{ await navigator.clipboard.writeText(text); toast(`Kolom ${kolomNames[kolom]} dicopy: ${allNames.length} baris`); }catch(err){ prompt("Copy manual (Ctrl+C):",text); toast("Gagal auto copy, copy manual"); } }); });
       }
-
       function renderNamaDatabase() {
         const container = $("#namaDatabaseList");
-        if (!container) return;
-        
+        if(!container) return;
         container.innerHTML = "";
-        
-        if (namaDatabaseStore.length === 0) {
-          container.innerHTML = '<div class="nama-empty">Belum ada staff dalam database</div>';
-          return;
-        }
-        
-        namaDatabaseStore.forEach((staff, idx) => {
-          const item = document.createElement("div");
-          item.className = "nama-item";
-          
-          item.innerHTML = `
-            <div class="nama-item-info">
-              <div class="nama-item-name">${staff.name}</div>
-              <div class="nama-item-divisi">${staff.divisi || "-"}</div>
-            </div>
-            <div class="nama-item-actions">
-              ${!isLocked ? `<button class="nama-item-btn edit" data-index="${idx}">Edit</button>` : ''}
-              ${!isLocked ? `<button class="nama-item-btn delete" data-index="${idx}">Hapus</button>` : ''}
-            </div>
-          `;
-          
-          container.appendChild(item);
-        });
-        
-        container.querySelectorAll(".nama-item-btn.edit").forEach(btn => {
-          btn.addEventListener("click", (e) => {
-            if (isLocked) { toast("Terkunci. Hanya bos yang bisa edit."); return; }
-            const idx = parseInt(e.target.dataset.index);
-            editNamaStaff(idx);
-          });
-        });
-        
-        container.querySelectorAll(".nama-item-btn.delete").forEach(btn => {
-          btn.addEventListener("click", (e) => {
-            if (isLocked) { toast("Terkunci. Hanya bos yang bisa hapus."); return; }
-            const idx = parseInt(e.target.dataset.index);
-            deleteNamaStaff(idx);
-          });
-        });
+        if(namaDatabaseStore.length===0){ container.innerHTML='<div class="nama-empty">Belum ada staff dalam database</div>'; return; }
+        namaDatabaseStore.forEach((staff,idx)=>{ const item=document.createElement("div"); item.className="nama-item"; item.innerHTML=`<div class="nama-item-info"><div class="nama-item-name">${staff.name}</div><div class="nama-item-divisi">${staff.divisi||"-"}</div></div><div class="nama-item-actions">${!isLocked?`<button class="nama-item-btn edit" data-index="${idx}">Edit</button><button class="nama-item-btn delete" data-index="${idx}">Hapus</button>`:''}</div>`; container.appendChild(item); });
+        container.querySelectorAll(".nama-item-btn.edit").forEach(btn=>{ btn.addEventListener("click",(e)=>{ if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); return; } const idx=parseInt(e.target.dataset.index); editNamaStaff(idx); }); });
+        container.querySelectorAll(".nama-item-btn.delete").forEach(btn=>{ btn.addEventListener("click",(e)=>{ if(isLocked){ toast("Terkunci. Hanya bos yang bisa hapus."); return; } const idx=parseInt(e.target.dataset.index); deleteNamaStaff(idx); }); });
       }
-
-      function updateNamaToBaganSelect() {
-        const select = $("#namaToBaganSelect");
-        if (!select) return;
-        
-        const selectedValue = select.value;
-        
-        select.innerHTML = '<option value="">Pilih Staff</option>';
-        
-        namaDatabaseStore.forEach((staff, idx) => {
-          const option = document.createElement("option");
-          option.value = idx;
-          option.textContent = `${staff.name} (${staff.divisi || "-"})`;
-          select.appendChild(option);
-        });
-        
-        if (selectedValue && selectedValue !== "") {
-          select.value = selectedValue;
-        }
+      function updateNamaToBaganSelect(){ const select=$("#namaToBaganSelect"); if(!select) return; const selectedValue=select.value; select.innerHTML='<option value="">Pilih Staff</option>'; namaDatabaseStore.forEach((staff,idx)=>{ const option=document.createElement("option"); option.value=idx; option.textContent=`${staff.name} (${staff.divisi||"-"})`; select.appendChild(option); }); if(selectedValue&&selectedValue!=="") select.value=selectedValue; }
+      function addNamaStaff(){ if(isLocked){ toast("Terkunci. Hanya bos yang bisa tambah staff."); return; } const nameInput=$("#namaInput"); const divisiSelect=$("#divisiSelect"); const name=nameInput.value.trim(); const divisi=divisiSelect.value; if(!name){ toast("Nama staff tidak boleh kosong"); return; } const existing=namaDatabaseStore.find(s=>s.name.toLowerCase()===name.toLowerCase()); if(existing){ toast("Nama staff sudah ada dalam database"); return; } namaDatabaseStore.push({name,divisi}); saveNamaDatabase(); renderNamaDatabase(); updateNamaToBaganSelect(); nameInput.value=""; divisiSelect.value=""; schedulePush(); toast("Staff ditambahkan: "+name); }
+      function editNamaStaff(idx){ if(isLocked) return; const staff=namaDatabaseStore[idx]; const newName=prompt("Edit nama staff:",staff.name); if(newName===null) return; const trimmed=newName.trim(); if(!trimmed){ toast("Nama staff tidak boleh kosong"); return; } const existing=namaDatabaseStore.find((s,i)=>i!==idx && s.name.toLowerCase()===trimmed.toLowerCase()); if(existing){ toast("Nama staff sudah ada dalam database"); return; } const newDivisi=prompt("Edit divisi staff:",staff.divisi||""); if(newDivisi===null) return; namaDatabaseStore[idx]={name:trimmed,divisi:newDivisi.trim()}; saveNamaDatabase(); renderNamaDatabase(); updateNamaToBaganSelect(); schedulePush(); toast("Staff diupdate: "+trimmed); }
+      function deleteNamaStaff(idx){ if(isLocked) return; if(!confirm("Hapus staff dari database?")) return; const deleted=namaDatabaseStore.splice(idx,1)[0]; saveNamaDatabase(); renderNamaDatabase(); updateNamaToBaganSelect(); schedulePush(); toast("Staff dihapus: "+deleted.name); }
+      function addToBagan(){ if(isLocked){ toast("Terkunci. Hanya bos yang bisa tambah ke bagan."); return; } const select=$("#namaToBaganSelect"); const idx=parseInt(select.value); if(isNaN(idx)||idx<0||idx>=namaDatabaseStore.length){ toast("Pilih staff terlebih dahulu"); return; } const staff=namaDatabaseStore[idx]; let emptySeatIndex=-1; for(let i=0;i<baganStore.length;i++){ if(baganStore[i].active&&!baganStore[i].name){ emptySeatIndex=i; break; } } if(emptySeatIndex===-1){ toast("Tidak ada seat kosong di bagan. Tambah baris/kolom terlebih dahulu."); return; } saveBaganToUndoStack(); baganStore[emptySeatIndex]={name:staff.name,divisi:staff.divisi,active:true}; saveBagan(); renderBagan(); schedulePush(); toast(`${staff.name} ditambahkan ke seat ${seatLabel(emptySeatIndex)}`); select.value=""; }
+      function setupExcelEvents(){
+        $("#addExcelRowBtn").onclick=()=>{ if(isLocked){ toast("Terkunci. Hanya bos yang bisa tambah baris."); return; } const count=prompt("Tambah berapa baris?","5"); if(!count||isNaN(count)) return; const numRows=parseInt(count); if(numRows<=0) return; const currentRows=Object.keys(barisKolomExcelData).length; for(let row=currentRows;row<currentRows+numRows;row++){ if(!barisKolomExcelData[row]){ barisKolomExcelData[row]=[]; for(let col=0;col<6;col++) barisKolomExcelData[row][col]={nama1:"",nama2:"",nama3:"",nama4:"",tanggal:""}; } } saveBarisKolomExcel(); renderBarisKolomTable(); schedulePush(); toast(`${numRows} baris ditambahkan`); };
+        $("#exportExcelAllBtn").onclick=async ()=>{ let allData="DAFTAR NAMA DAN TANGGAL PER KOLOM (31 Baris):\n\n"; const kolomNames=["LIVE CHAT","WHATSAPP","DEPOSIT","FINANCE","WHITDRAW","DESIGN"]; for(let col=0;col<6;col++){ let kolomData=[]; for(let row=0;row<31;row++){ const cell=barisKolomExcelData[row]?.[col]||{nama1:"",nama2:"",nama3:"",nama4:"",tanggal:""}; const names=[cell.nama1?.trim(),cell.nama2?.trim(),cell.nama3?.trim(),cell.nama4?.trim()].filter(n=>n&&n!==""); const dateStr=cell.tanggal?.trim()||""; if(names.length>0||dateStr){ const nameStr=names.length>0?names.join(", "):"-"; const rowStr=dateStr?`${nameStr} | ${dateStr}`:nameStr; kolomData.push(`${row+1}. ${rowStr}`); } } allData+=`${kolomNames[col]}:\n`; allData+=kolomData.length>0?kolomData.join("\n"):"- (kosong)"; allData+="\n\n"; } try{ await navigator.clipboard.writeText(allData); toast("Semua data Excel dicopy (31 baris, 4 nama, 1 tanggal)"); }catch(e){ prompt("Copy manual (Ctrl+C):",allData); toast("Gagal auto copy, copy manual"); } };
       }
-
-      function addNamaStaff() {
-        if (isLocked) { toast("Terkunci. Hanya bos yang bisa tambah staff."); return; }
-        
-        const nameInput = $("#namaInput");
-        const divisiSelect = $("#divisiSelect");
-        
-        const name = nameInput.value.trim();
-        const divisi = divisiSelect.value;
-        
-        if (!name) {
-          toast("Nama staff tidak boleh kosong");
-          return;
-        }
-        
-        const existing = namaDatabaseStore.find(s => 
-          s.name.toLowerCase() === name.toLowerCase()
-        );
-        
-        if (existing) {
-          toast("Nama staff sudah ada dalam database");
-          return;
-        }
-        
-        namaDatabaseStore.push({ name, divisi });
-        saveNamaDatabase();
-        renderNamaDatabase();
-        updateNamaToBaganSelect();
-        
-        nameInput.value = "";
-        divisiSelect.value = "";
-        
-        schedulePush();
-        toast("Staff ditambahkan: " + name);
-      }
-
-      function editNamaStaff(idx) {
-        if (isLocked) { return; }
-        
-        const staff = namaDatabaseStore[idx];
-        const newName = prompt("Edit nama staff:", staff.name);
-        
-        if (newName === null) return;
-        
-        const trimmed = newName.trim();
-        if (!trimmed) {
-          toast("Nama staff tidak boleh kosong");
-          return;
-        }
-        
-        const existing = namaDatabaseStore.find((s, i) => 
-          i !== idx && s.name.toLowerCase() === trimmed.toLowerCase()
-        );
-        
-        if (existing) {
-          toast("Nama staff sudah ada dalam database");
-          return;
-        }
-        
-        const newDivisi = prompt("Edit divisi staff:", staff.divisi || "");
-        
-        if (newDivisi === null) return;
-        
-        namaDatabaseStore[idx] = {
-          name: trimmed,
-          divisi: newDivisi.trim()
-        };
-        
-        saveNamaDatabase();
-        renderNamaDatabase();
-        updateNamaToBaganSelect();
-        schedulePush();
-        toast("Staff diupdate: " + trimmed);
-      }
-
-      function deleteNamaStaff(idx) {
-        if (isLocked) { return; }
-        
-        if (!confirm("Hapus staff dari database?")) return;
-        
-        const deleted = namaDatabaseStore.splice(idx, 1)[0];
-        saveNamaDatabase();
-        renderNamaDatabase();
-        updateNamaToBaganSelect();
-        schedulePush();
-        toast("Staff dihapus: " + deleted.name);
-      }
-
-      function addToBagan() {
-        if (isLocked) { toast("Terkunci. Hanya bos yang bisa tambah ke bagan."); return; }
-        
-        const select = $("#namaToBaganSelect");
-        const idx = parseInt(select.value);
-        
-        if (isNaN(idx) || idx < 0 || idx >= namaDatabaseStore.length) {
-          toast("Pilih staff terlebih dahulu");
-          return;
-        }
-        
-        const staff = namaDatabaseStore[idx];
-        
-        let emptySeatIndex = -1;
-        for (let i = 0; i < baganStore.length; i++) {
-          if (baganStore[i].active && !baganStore[i].name) {
-            emptySeatIndex = i;
-            break;
-          }
-        }
-        
-        if (emptySeatIndex === -1) {
-          toast("Tidak ada seat kosong di bagan. Tambah baris/kolom terlebih dahulu.");
-          return;
-        }
-        
-        saveBaganToUndoStack();
-        
-        baganStore[emptySeatIndex] = {
-          name: staff.name,
-          divisi: staff.divisi,
-          active: true
-        };
-        
-        saveBagan();
-        renderBagan();
-        schedulePush();
-        toast(`${staff.name} ditambahkan ke seat ${seatLabel(emptySeatIndex)}`);
-        
-        select.value = "";
-      }
-
-      function setupExcelEvents() {
-        $("#addExcelRowBtn").onclick = () => {
-          if (isLocked) { 
-            toast("Terkunci. Hanya bos yang bisa tambah baris."); 
-            return; 
-          }
-          
-          const count = prompt("Tambah berapa baris?", "5");
-          if (!count || isNaN(count)) return;
-          
-          const numRows = parseInt(count);
-          if (numRows <= 0) return;
-          
-          const currentRows = Object.keys(barisKolomExcelData).length;
-          for (let row = currentRows; row < currentRows + numRows; row++) {
-            if (!barisKolomExcelData[row]) {
-              barisKolomExcelData[row] = [];
-              for (let col = 0; col < 6; col++) {
-                barisKolomExcelData[row][col] = { 
-                  nama1: "", 
-                  nama2: "", 
-                  nama3: "", 
-                  nama4: "", 
-                  tanggal: "" 
-                };
-              }
-            }
-          }
-          
-          saveBarisKolomExcel();
-          renderBarisKolomTable();
-          schedulePush();
-          toast(`${numRows} baris ditambahkan`);
-        };
-        
-        $("#exportExcelAllBtn").onclick = async () => {
-          let allData = "DAFTAR NAMA DAN TANGGAL PER KOLOM (31 Baris):\n\n";
-          const kolomNames = ["LIVE CHAT", "WHATSAPP", "DEPOSIT", "FINANCE", "WHITDRAW", "DESIGN"];
-          
-          for (let col = 0; col < 6; col++) {
-            let kolomData = [];
-            
-            for (let row = 0; row < 31; row++) {
-              const cell = barisKolomExcelData[row]?.[col] || { 
-                nama1: "", 
-                nama2: "", 
-                nama3: "", 
-                nama4: "", 
-                tanggal: "" 
-              };
-              
-              const names = [
-                cell.nama1?.trim(),
-                cell.nama2?.trim(),
-                cell.nama3?.trim(),
-                cell.nama4?.trim()
-              ].filter(n => n && n !== "");
-              
-              const dateStr = cell.tanggal?.trim() || "";
-              
-              if (names.length > 0 || dateStr) {
-                const nameStr = names.length > 0 ? names.join(", ") : "-";
-                const rowStr = dateStr ? `${nameStr} | ${dateStr}` : nameStr;
-                kolomData.push(`${row+1}. ${rowStr}`);
-              }
-            }
-            
-            allData += `${kolomNames[col]}:\n`;
-            allData += kolomData.length > 0 ? kolomData.join("\n") : "- (kosong)";
-            allData += "\n\n";
-          }
-          
-          try {
-            await navigator.clipboard.writeText(allData);
-            toast("Semua data Excel dicopy (31 baris, 4 nama, 1 tanggal)");
-          } catch(e) {
-            prompt("Copy manual (Ctrl+C):", allData);
-            toast("Gagal auto copy, copy manual");
-          }
-        };
-      }
-
-      function setupNamaEvents() {
-        $("#addNamaBtn").onclick = addNamaStaff;
-        $("#addToBaganBtn").onclick = addToBagan;
-        
-        $("#exportNamaBtn").onclick = async () => {
-          const txt = namaDatabaseStore.map((s, i) => 
-            `${i+1}. ${s.name} - ${s.divisi || "-"}`
-          ).join("\n") || "Belum ada staff dalam database";
-          
-          try {
-            await navigator.clipboard.writeText(txt);
-            toast("Database staff dicopy");
-          } catch(e) {
-            alert(txt);
-            toast("Gagal copy, blok manual");
-          }
-        };
-      }
-
-      function migrateData() {
-        const oldStoreKey = "offday-v4";
-        const oldStore = JSON.parse(localStorage.getItem(oldStoreKey) || "null");
-        if (oldStore && Object.keys(oldStore).length > 0) {
-          for (let key in oldStore) {
-            if (oldStore[key] && oldStore[key].entries && oldStore[key].entries.length === 8) {
-              const oldEntries = oldStore[key].entries;
-              const newEntries = [...oldEntries];
-              while (newEntries.length < 10) {
-                newEntries.push({ name: "", role: "" });
-              }
-              oldStore[key].entries = newEntries;
-            }
-          }
-          Object.assign(store, oldStore);
-          saveStore();
-          localStorage.removeItem(oldStoreKey);
-        }
-      }
-
+      function setupNamaEvents(){ $("#addNamaBtn").onclick=addNamaStaff; $("#addToBaganBtn").onclick=addToBagan; $("#exportNamaBtn").onclick=async ()=>{ const txt=namaDatabaseStore.map((s,i)=>`${i+1}. ${s.name} - ${s.divisi||"-"}`).join("\n")||"Belum ada staff dalam database"; try{ await navigator.clipboard.writeText(txt); toast("Database staff dicopy"); }catch(e){ alert(txt); toast("Gagal copy, blok manual"); } }; }
+      function migrateData(){ const oldStoreKey="offday-v4"; const oldStore=JSON.parse(localStorage.getItem(oldStoreKey)||"null"); if(oldStore&&Object.keys(oldStore).length>0){ for(let key in oldStore){ if(oldStore[key]&&oldStore[key].entries&&oldStore[key].entries.length===8){ const oldEntries=oldStore[key].entries; const newEntries=[...oldEntries]; while(newEntries.length<10) newEntries.push({name:"",role:""}); oldStore[key].entries=newEntries; } } Object.assign(store,oldStore); saveStore(); localStorage.removeItem(oldStoreKey); } }
       function renderPiketTable(){
-        const body = $("#piketTableBody");
-        body.innerHTML = "";
-        const days = ["SENIN","SELASA","RABU","KAMIS","JUMAT","SABTU","MINGGU"];
-
+        const body=$("#piketTableBody");
+        body.innerHTML="";
+        const days=["SENIN","SELASA","RABU","KAMIS","JUMAT","SABTU","MINGGU"];
         days.forEach(day=>{
-          const tr = document.createElement("tr");
-          const names = piketStore[day] || Array(8).fill("");
-
-          const wrap = document.createElement("div");
-          names.forEach((nm,i)=>{
-            const span = document.createElement("span");
-            span.className = "piket-name " + ((nm||"").trim() ? "" : "empty");
-            span.dataset.day = day;
-            span.dataset.i = i;
-            span.textContent = (nm||"").trim() || "—";
-            wrap.appendChild(span);
-          });
-
-          const tdDay = document.createElement("td");
-          tdDay.className = "name";
-          tdDay.style.fontWeight = "900";
-          tdDay.textContent = day;
-
-          const tdNames = document.createElement("td");
-          tdNames.colSpan = 8;
-          tdNames.appendChild(wrap);
-
-          tr.appendChild(tdDay);
-          tr.appendChild(tdNames);
+          const tr=document.createElement("tr");
+          const names=piketStore[day]||Array(8).fill("");
+          const wrap=document.createElement("div");
+          names.forEach((nm,i)=>{ const span=document.createElement("span"); span.className="piket-name "+((nm||"").trim()?"":"empty"); span.dataset.day=day; span.dataset.i=i; span.textContent=(nm||"").trim()||"—"; wrap.appendChild(span); });
+          const tdDay=document.createElement("td"); tdDay.className="name"; tdDay.style.fontWeight="900"; tdDay.textContent=day;
+          const tdNames=document.createElement("td"); tdNames.colSpan=8; tdNames.appendChild(wrap);
+          tr.appendChild(tdDay); tr.appendChild(tdNames);
           body.appendChild(tr);
         });
-
-        body.querySelectorAll(".piket-name").forEach(el=>{
-          el.onclick = ()=>{
-            if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); return; }
-            const day = el.dataset.day;
-            const i = Number(el.dataset.i);
-            const old = piketStore[day][i] || "";
-            const nm = prompt("Nama piket " + day + " slot " + (i+1) + ":", old);
-            if(nm===null) return;
-            piketStore[day][i] = nm.trim();
-            savePiket();
-            renderPiketTable();
-            schedulePush();
-          };
-        });
+        body.querySelectorAll(".piket-name").forEach(el=>{ el.onclick=()=>{ if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); return; } const day=el.dataset.day; const i=Number(el.dataset.i); const old=piketStore[day][i]||""; const nm=prompt("Nama piket "+day+" slot "+(i+1)+":",old); if(nm===null) return; piketStore[day][i]=nm.trim(); savePiket(); renderPiketTable(); schedulePush(); }; });
       }
-
-      $("#exportPiketBtn").onclick = async ()=>{
-        const days = ["SENIN","SELASA","RABU","KAMIS","JUMAT","SABTU","MINGGU"];
-        let txt = "";
-        days.forEach(d=>{
-          const list = (piketStore[d]||[]).filter(n=>String(n).trim());
-          txt += d + ":\n" + (list.length ? list.map(x=>"- "+x).join("\n") : "- (kosong)") + "\n\n";
-        });
-
-        try{
-          await navigator.clipboard.writeText(txt);
-          toast("PIKET dicopy");
-        }catch(e){
-          alert(txt);
-          toast("Gagal copy, blok manual");
-        }
-      };
-
+      $("#exportPiketBtn").onclick=async ()=>{ const days=["SENIN","SELASA","RABU","KAMIS","JUMAT","SABTU","MINGGU"]; let txt=""; days.forEach(d=>{ const list=(piketStore[d]||[]).filter(n=>String(n).trim()); txt+=d+":\n"+(list.length?list.map(x=>"- "+x).join("\n"):"- (kosong)")+"\n\n"; }); try{ await navigator.clipboard.writeText(txt); toast("PIKET dicopy"); }catch(e){ alert(txt); toast("Gagal copy, blok manual"); } };
       function renderCSTable(){
-        const body = $("#csTableBody");
+        const body=$("#csTableBody");
         if(!body) return;
-        body.innerHTML = "";
-
-        if(csStore.length === 0){
-          body.innerHTML = `<tr><td colspan="3" style="padding:16px; opacity:.7;">Belum ada data CS.</td></tr>`;
-          return;
-        }
-
-        csStore.forEach((row, idx) => {
-          const tr = document.createElement("tr");
-
-          const tdName = document.createElement("td");
-          tdName.className = "name";
-          tdName.style.display = "flex";
-          tdName.style.alignItems = "center";
-          tdName.style.gap = "10px";
-
-          const nameSpan = document.createElement("span");
-          nameSpan.className = "cs-name-span";
-          nameSpan.textContent = ((idx+1) + ". " + ((row.name||"-").trim() || "-"));
-          nameSpan.style.cursor = "pointer";
-          nameSpan.title = "Klik untuk copy nama";
-          nameSpan.onclick = async (ev) => {
-            ev.stopPropagation();
-            const nm = (row.name || "").trim();
-            if(!nm) { toast("Nama kosong"); return; }
-            const ok = await copyToClipboard(nm);
-            if(ok) toast("Tercopy: " + nm);
-            else { prompt("Copy manual (CTRL+C):", nm); toast("Gagal auto copy, copy manual"); }
-          };
-
-          const editBtn = document.createElement("button");
-          editBtn.textContent = "✎";
-          editBtn.title = "Edit nama CS";
-          editBtn.style.padding = "6px 10px";
-          editBtn.style.borderRadius = "10px";
-          editBtn.style.border = "1px solid rgba(255,255,255,.16)";
-          editBtn.style.background = "rgba(255,255,255,.06)";
-          editBtn.style.color = "#eef2ff";
-          editBtn.style.cursor = "pointer";
-          editBtn.onmouseenter = () => editBtn.style.background = "rgba(255,255,255,.10)";
-          editBtn.onmouseleave = () => editBtn.style.background = "rgba(255,255,255,.06)";
-          editBtn.onclick = (ev) => {
-            ev.stopPropagation();
-            if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); return; }
-            const cur = (csStore[idx]?.name || "").trim();
-            const nm = prompt("Edit nama CS:", cur);
-            if(nm === null) return;
-            const name = nm.trim();
-            if(!name){ toast("Nama tidak boleh kosong"); return; }
-            csStore[idx].name = name;
-            saveCS();
-            renderCSTable();
-            schedulePush();
-            toast("Nama CS diupdate");
-          };
-
-          tdName.appendChild(nameSpan);
-          tdName.appendChild(editBtn);
-
-          const tdJob = document.createElement("td");
-          const wrap = document.createElement("div");
-          wrap.className = "cs-job-wrap";
-
-          const select = document.createElement("select");
-          select.className = "cs-job-select";
-
-          CS_JOB_OPTIONS.forEach(opt=>{
-            const o = document.createElement("option");
-            o.value = opt.value;
-            o.textContent = opt.label;
-            o.setAttribute("data-color", opt.color);
-            if(opt.value === (row.job||"")) o.selected = true;
-            select.appendChild(o);
-          });
-
-          const applyJobColor = () => {
-            const opt = select.options[select.selectedIndex];
-            const color = opt.getAttribute("data-color") || "#202741";
-            select.style.background = color;
-            const dark = isDark(color);
-            select.style.color = dark ? "#eef2ff" : "#0b0f1d";
-          };
+        body.innerHTML="";
+        if(csStore.length===0){ body.innerHTML='<tr><td colspan="3" style="padding:16px; opacity:.7;">Belum ada data CS.</td></tr>'; return; }
+        csStore.forEach((row,idx)=>{
+          const tr=document.createElement("tr");
+          const tdName=document.createElement("td"); tdName.className="name"; tdName.style.display="flex"; tdName.style.alignItems="center"; tdName.style.gap="10px";
+          const nameSpan=document.createElement("span"); nameSpan.className="cs-name-span"; nameSpan.textContent=((idx+1)+". "+((row.name||"-").trim()||"-")); nameSpan.style.cursor="pointer"; nameSpan.title="Klik untuk copy nama"; nameSpan.onclick=async(ev)=>{ ev.stopPropagation(); const nm=(row.name||"").trim(); if(!nm){ toast("Nama kosong"); return; } const ok=await copyToClipboard(nm); if(ok) toast("Tercopy: "+nm); else{ prompt("Copy manual (CTRL+C):",nm); toast("Gagal auto copy, copy manual"); } };
+          const editBtn=document.createElement("button"); editBtn.textContent="✎"; editBtn.title="Edit nama CS"; editBtn.style.padding="6px 10px"; editBtn.style.borderRadius="10px"; editBtn.style.border="1px solid rgba(255,255,255,.16)"; editBtn.style.background="rgba(255,255,255,.06)"; editBtn.style.color="#eef2ff"; editBtn.style.cursor="pointer"; editBtn.onmouseenter=()=>editBtn.style.background="rgba(255,255,255,.10)"; editBtn.onmouseleave=()=>editBtn.style.background="rgba(255,255,255,.06)"; editBtn.onclick=(ev)=>{ ev.stopPropagation(); if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); return; } const cur=(csStore[idx]?.name||"").trim(); const nm=prompt("Edit nama CS:",cur); if(nm===null) return; const name=nm.trim(); if(!name){ toast("Nama tidak boleh kosong"); return; } csStore[idx].name=name; saveCS(); renderCSTable(); schedulePush(); toast("Nama CS diupdate"); };
+          tdName.appendChild(nameSpan); tdName.appendChild(editBtn);
+          const tdJob=document.createElement("td"); const wrap=document.createElement("div"); wrap.className="cs-job-wrap";
+          const select=document.createElement("select"); select.className="cs-job-select";
+          CS_JOB_OPTIONS.forEach(opt=>{ const o=document.createElement("option"); o.value=opt.value; o.textContent=opt.label; o.setAttribute("data-color",opt.color); if(opt.value===(row.job||"")) o.selected=true; select.appendChild(o); });
+          const applyJobColor=()=>{ const opt=select.options[select.selectedIndex]; const color=opt.getAttribute("data-color")||"#202741"; select.style.background=color; const dark=isDark(color); select.style.color=dark?"#eef2ff":"#0b0f1d"; };
           applyJobColor();
-
-          select.onchange = () => {
-            if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); renderCSTable(); return; }
-            csStore[idx].job = select.value;
-            saveCS();
-            applyJobColor();
-            schedulePush();
-            toast("Jobdesk diubah");
-          };
-
-          wrap.appendChild(select);
-          tdJob.appendChild(wrap);
-
-          const tdAct = document.createElement("td");
-
-          const offBtn = document.createElement("button");
-          offBtn.className = "btn-green";
-          offBtn.textContent = "→ OFFDAY";
-          offBtn.style.marginRight = "6px";
-
-          offBtn.onclick = () => {
-            if(isLocked){
-              toast("Terkunci. Hanya bos yang bisa edit.");
-              return;
-            }
-
-            const tgl = prompt("Masukkan tanggal OFFDAY (YYYY-MM-DD):", ymd(new Date()));
-            if(!tgl) return;
-
-            ensureDay(tgl);
-
-            if(store[tgl].blocked){
-              toast("Tanggal diblokir");
-              return;
-            }
-
-            const slot = store[tgl].entries.find(e => !(e.name||"").trim());
-            if(!slot){
-              toast("Slot OFFDAY penuh (maks 10)");
-              return;
-            }
-
-            slot.name = row.name || "";
-            slot.role = row.job || "";
-            store[tgl].type = "OFF";
-            store[tgl].off = true;
-
-            saveStore();
-            renderCalendar();
-            schedulePush();
-            toast((row.name||"CS") + " masuk OFFDAY " + tgl);
-          };
-
-          const del = document.createElement("button");
-          del.className = "cs-del-btn";
-          del.textContent = "HAPUS";
-          del.onclick = () => {
-            if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); return; }
-            if(confirm("Hapus CS ini?")){
-              const deleted = csStore[idx];
-              csStore.splice(idx, 1);
-              saveCS(); renderCSTable(); schedulePush();
-              logDelete('HAPUS_CS', `Nama: ${deleted.name}, Job: ${deleted.job}`);
-              toast(`CS dihapus oleh ${userEmail}`);
-            }
-          };
-
-          tdAct.appendChild(offBtn);
-          tdAct.appendChild(del);
-
-          tr.appendChild(tdName);
-          tr.appendChild(tdJob);
-          tr.appendChild(tdAct);
+          select.onchange=()=>{ if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); renderCSTable(); return; } csStore[idx].job=select.value; saveCS(); applyJobColor(); schedulePush(); toast("Jobdesk diubah"); };
+          wrap.appendChild(select); tdJob.appendChild(wrap);
+          const tdAct=document.createElement("td");
+          const offBtn=document.createElement("button"); offBtn.className="btn-green"; offBtn.textContent="→ OFFDAY"; offBtn.style.marginRight="6px";
+          offBtn.onclick=()=>{ if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); return; } const tgl=prompt("Masukkan tanggal OFFDAY (YYYY-MM-DD):",ymd(new Date())); if(!tgl) return; ensureDay(tgl); if(store[tgl].blocked){ toast("Tanggal diblokir"); return; } const slot=store[tgl].entries.find(e=>!(e.name||"").trim()); if(!slot){ toast("Slot OFFDAY penuh (maks 10)"); return; } slot.name=row.name||""; slot.role=row.job||""; store[tgl].type="OFF"; store[tgl].off=true; saveStore(); renderCalendar(); schedulePush(); toast((row.name||"CS")+" masuk OFFDAY "+tgl); };
+          const del=document.createElement("button"); del.className="cs-del-btn"; del.textContent="HAPUS"; del.onclick=()=>{ if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); return; } if(confirm("Hapus CS ini?")){ const deleted=csStore[idx]; csStore.splice(idx,1); saveCS(); renderCSTable(); schedulePush(); logDelete('HAPUS_CS',`Nama: ${deleted.name}, Job: ${deleted.job}`); toast(`CS dihapus oleh ADMIN`); } };
+          tdAct.appendChild(offBtn); tdAct.appendChild(del);
+          tr.appendChild(tdName); tr.appendChild(tdJob); tr.appendChild(tdAct);
           body.appendChild(tr);
         });
       }
-
-      $("#addCsBtn").onclick = () => {
-        if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); return; }
-        const nm = prompt("Masukkan nama CS:", "");
-        if(nm === null) return;
-        const name = nm.trim();
-        if(!name){ toast("Nama tidak boleh kosong"); return; }
-        csStore.push({ name, job: "" });
-        saveCS();
-        renderCSTable();
-        schedulePush();
-        toast("CS ditambahkan");
-      };
-
-      $("#exportCsBtn").onclick = async () => {
-        const txt = csStore.map((r,i)=>`${i+1}. ${r.name} — ${r.job || "-"}`).join("\n") || "Belum ada data CS";
-        try{
-          await navigator.clipboard.writeText(txt);
-          toast("CS dicopy");
-        }catch(e){
-          alert(txt);
-          toast("Gagal copy, blok manual");
-        }
-      };
-
+      $("#addCsBtn").onclick=()=>{ if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); return; } const nm=prompt("Masukkan nama CS:",""); if(nm===null) return; const name=nm.trim(); if(!name){ toast("Nama tidak boleh kosong"); return; } csStore.push({name,job:""}); saveCS(); renderCSTable(); schedulePush(); toast("CS ditambahkan"); };
+      $("#exportCsBtn").onclick=async ()=>{ const txt=csStore.map((r,i)=>`${i+1}. ${r.name} — ${r.job||"-"}`).join("\n")||"Belum ada data CS"; try{ await navigator.clipboard.writeText(txt); toast("CS dicopy"); }catch(e){ alert(txt); toast("Gagal copy, blok manual"); } };
       function renderCatatanList() {
         const container = $("#catatanList");
         if (!container) return;
-        
         container.innerHTML = "";
-        
-        if (catatanStore.length === 0) {
-          container.innerHTML = '<div class="empty-catatan">Belum ada catatan. Tambahkan catatan baru.</div>';
-          return;
-        }
-        
-        const sortedCatatan = [...catatanStore].sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-        
-        sortedCatatan.forEach((catatan, idx) => {
-          const item = document.createElement("div");
-          item.className = "catatan-item";
-          
-          item.innerHTML = `
-            <div class="catatan-header">
-              <div class="catatan-title">${catatan.title || "Tanpa Judul"}</div>
-              <div class="catatan-category" data-category="${catatan.category || ''}">${catatan.category || ""}</div>
-            </div>
-            <div class="catatan-content">${catatan.content || ""}</div>
-            <div class="catatan-footer">
-              <div class="catatan-date">${catatan.date || ""}</div>
-              <div class="catatan-actions">
-                ${!isLocked ? `<button class="catatan-btn edit" data-index="${idx}">Edit</button>` : ''}
-                ${!isLocked ? `<button class="catatan-btn delete" data-index="${idx}">Hapus</button>` : ''}
-              </div>
-            </div>
-          `;
-          
-          container.appendChild(item);
-        });
-        
-        container.querySelectorAll(".catatan-btn.edit").forEach(btn => {
-          btn.addEventListener("click", (e) => {
-            if (isLocked) { toast("Terkunci. Hanya bos yang bisa edit."); return; }
-            const idx = parseInt(e.target.dataset.index);
-            editCatatan(idx);
-          });
-        });
-        
-        container.querySelectorAll(".catatan-btn.delete").forEach(btn => {
-          btn.addEventListener("click", (e) => {
-            if (isLocked) { toast("Terkunci. Hanya bos yang bisa hapus."); return; }
-            const idx = parseInt(e.target.dataset.index);
-            deleteCatatan(idx);
-          });
-        });
+        if (catatanStore.length === 0) { container.innerHTML = '<div class="empty-catatan">Belum ada catatan. Tambahkan catatan baru.</div>'; return; }
+        const sortedCatatan = [...catatanStore].sort((a,b)=>new Date(b.date||0)-new Date(a.date||0));
+        sortedCatatan.forEach((catatan,idx)=>{ const item=document.createElement("div"); item.className="catatan-item"; item.innerHTML=`<div class="catatan-header"><div class="catatan-title">${catatan.title||"Tanpa Judul"}</div><div class="catatan-category" data-category="${catatan.category||''}">${catatan.category||""}</div></div><div class="catatan-content">${catatan.content||""}</div><div class="catatan-footer"><div class="catatan-date">${catatan.date||""}</div><div class="catatan-actions">${!isLocked?`<button class="catatan-btn edit" data-index="${idx}">Edit</button><button class="catatan-btn delete" data-index="${idx}">Hapus</button>`:''}</div></div>`; container.appendChild(item); });
+        container.querySelectorAll(".catatan-btn.edit").forEach(btn=>{ btn.addEventListener("click",(e)=>{ if(isLocked){ toast("Terkunci. Hanya bos yang bisa edit."); return; } const idx=parseInt(e.target.dataset.index); editCatatan(idx); }); });
+        container.querySelectorAll(".catatan-btn.delete").forEach(btn=>{ btn.addEventListener("click",(e)=>{ if(isLocked){ toast("Terkunci. Hanya bos yang bisa hapus."); return; } const idx=parseInt(e.target.dataset.index); deleteCatatan(idx); }); });
       }
-
-      function editCatatan(idx) {
-        if (idx < 0 || idx >= catatanStore.length) return;
-        
-        const catatan = catatanStore[idx];
-        editingCatatanIndex = idx;
-        
-        $("#catatanTitle").value = catatan.title || "";
-        $("#catatanCategory").value = catatan.category || "";
-        $("#catatanContent").value = catatan.content || "";
-        
-        $("#catatanForm button[type='submit']").innerHTML = '<i class="fas fa-save"></i> Update Catatan';
-      }
-
-      function deleteCatatan(idx) {
-        if (isLocked) { toast("Terkunci. Hanya bos yang bisa hapus."); return; }
-        
-        if (confirm("Hapus catatan ini?")) {
-          const deleted = catatanStore[idx];
-          catatanStore.splice(idx, 1);
-          saveCatatan(); renderCatatanList(); schedulePush();
-          logDelete('HAPUS_CATATAN', `Judul: ${deleted.title}, Kategori: ${deleted.category}`);
-          toast(`Catatan dihapus oleh ${userEmail}`);
-        }
-      }
-
-      function setupCatatanForm() {
-        const form = $("#catatanForm");
-        if (!form) return;
-        
-        form.addEventListener("submit", (e) => {
-          e.preventDefault();
-          
-          if (isLocked) {
-            toast("Terkunci. Hanya bos yang bisa tambah catatan.");
-            return;
-          }
-          
-          const title = $("#catatanTitle").value.trim();
-          const category = $("#catatanCategory").value;
-          const content = $("#catatanContent").value.trim();
-          
-          if (!title || !category || !content) {
-            toast("Harap isi semua field!");
-            return;
-          }
-          
-          const now = new Date();
-          const dateStr = `${now.getDate()} ${MONTHS_ID[now.getMonth()]} ${now.getFullYear()}`;
-          
-          const newCatatan = {
-            title,
-            category,
-            content,
-            date: dateStr
-          };
-          
-          if (editingCatatanIndex !== null) {
-            catatanStore[editingCatatanIndex] = newCatatan;
-            toast("Catatan diupdate");
-          } else {
-            catatanStore.push(newCatatan);
-            toast("Catatan ditambahkan");
-          }
-          
-          saveCatatan();
-          renderCatatanList();
-          schedulePush();
-          
-          form.reset();
-          editingCatatanIndex = null;
-          $("#catatanForm button[type='submit']").innerHTML = '<i class="fas fa-plus"></i> Simpan Catatan';
-        });
-      }
-
-      $("#addCatatanBtn").onclick = () => {
-        if (isLocked) {
-          toast("Terkunci. Hanya bos yang bisa tambah catatan.");
-          return;
-        }
-        
-        $("#catatanForm").reset();
-        editingCatatanIndex = null;
-        $("#catatanForm button[type='submit']").innerHTML = '<i class="fas fa-plus"></i> Simpan Catatan';
-        $("#catatanTitle").focus();
-      };
-
-      $("#exportCatatanBtn").onclick = async () => {
-        if (catatanStore.length === 0) {
-          toast("Belum ada catatan untuk diexport");
-          return;
-        }
-        
-        const txt = catatanStore.map((c, i) => 
-          `${i+1}. ${c.title}\nKategori: ${c.category}\nTanggal: ${c.date}\n${c.content}\n`
-        ).join("\n---\n\n");
-        
-        try {
-          await navigator.clipboard.writeText(txt);
-          toast("Catatan dicopy ke clipboard");
-        } catch(e) {
-          alert(txt);
-          toast("Gagal copy, blok manual");
-        }
-      };
-
+      function editCatatan(idx){ if(idx<0||idx>=catatanStore.length) return; const catatan=catatanStore[idx]; editingCatatanIndex=idx; $("#catatanTitle").value=catatan.title||""; $("#catatanCategory").value=catatan.category||""; $("#catatanContent").value=catatan.content||""; $("#catatanForm button[type='submit']").innerHTML='<i class="fas fa-save"></i> Update Catatan'; }
+      function deleteCatatan(idx){ if(isLocked){ toast("Terkunci. Hanya bos yang bisa hapus."); return; } if(confirm("Hapus catatan ini?")){ const deleted=catatanStore[idx]; catatanStore.splice(idx,1); saveCatatan(); renderCatatanList(); schedulePush(); logDelete('HAPUS_CATATAN',`Judul: ${deleted.title}, Kategori: ${deleted.category}`); toast(`Catatan dihapus oleh ADMIN`); } }
+      function setupCatatanForm(){ const form=$("#catatanForm"); if(!form) return; form.addEventListener("submit",(e)=>{ e.preventDefault(); if(isLocked){ toast("Terkunci. Hanya bos yang bisa tambah catatan."); return; } const title=$("#catatanTitle").value.trim(); const category=$("#catatanCategory").value; const content=$("#catatanContent").value.trim(); if(!title||!category||!content){ toast("Harap isi semua field!"); return; } const now=new Date(); const dateStr=`${now.getDate()} ${MONTHS_ID[now.getMonth()]} ${now.getFullYear()}`; const newCatatan={title,category,content,date:dateStr}; if(editingCatatanIndex!==null){ catatanStore[editingCatatanIndex]=newCatatan; toast("Catatan diupdate"); } else{ catatanStore.push(newCatatan); toast("Catatan ditambahkan"); } saveCatatan(); renderCatatanList(); schedulePush(); form.reset(); editingCatatanIndex=null; $("#catatanForm button[type='submit']").innerHTML='<i class="fas fa-plus"></i> Simpan Catatan'; }); }
+      $("#addCatatanBtn").onclick=()=>{ if(isLocked){ toast("Terkunci. Hanya bos yang bisa tambah catatan."); return; } $("#catatanForm").reset(); editingCatatanIndex=null; $("#catatanForm button[type='submit']").innerHTML='<i class="fas fa-plus"></i> Simpan Catatan'; $("#catatanTitle").focus(); };
+      $("#exportCatatanBtn").onclick=async ()=>{ if(catatanStore.length===0){ toast("Belum ada catatan untuk diexport"); return; } const txt=catatanStore.map((c,i)=>`${i+1}. ${c.title}\nKategori: ${c.category}\nTanggal: ${c.date}\n${c.content}\n`).join("\n---\n\n"); try{ await navigator.clipboard.writeText(txt); toast("Catatan dicopy ke clipboard"); }catch(e){ alert(txt); toast("Gagal copy, blok manual"); } };
       function setActiveTab(type){
         activeFilterType = type;
-
-        $("#topTabs").querySelectorAll(".tab-btn").forEach(b=>{
-          b.classList.toggle("active", b.dataset.type===type);
-        });
-
-        const hideAll = () => {
-          $("#calendarPanel").style.display="none";
-          $("#cutiPanel").style.display="none";
-          $("#baganPanel").style.display="none";
-          $("#barisKolomPanel").style.display="none";
-          $("#namaPanel").style.display="none";
-          $("#piketPanel").style.display="none";
-          $("#csPanel").style.display="none";
-          $("#catatanPanel").style.display="none";
-        };
-
-        if(type==="CUTI"){
-          hideAll();
-          $("#cutiPanel").style.display="flex";
-          renderCutiTable();
-          toast("Mode: CUTI");
-          return;
-        }
-
-        if(type==="BAGAN_VIEW"){
-          hideAll();
-          $("#baganPanel").style.display="flex";
-          renderBagan();
-          updateDeleteSeatUI();
-          toast("Mode: BAGAN");
-          return;
-        }
-
-        if(type==="BARI_KOLOM"){
-          hideAll();
-          $("#barisKolomPanel").style.display="flex";
-          renderBarisKolomTable();
-          toast("Mode: EXCEL DIVISI (31 Baris, 4 Nama, 1 Tanggal)");
-          return;
-        }
-
-        if(type==="NAMA"){
-          hideAll();
-          $("#namaPanel").style.display="flex";
-          renderNamaDatabase();
-          updateNamaToBaganSelect();
-          toast("Mode: DATABASE NAMA");
-          return;
-        }
-
-        if(type==="PIKET"){
-          hideAll();
-          $("#piketPanel").style.display="flex";
-          renderPiketTable();
-          toast("Mode: PIKET");
-          return;
-        }
-
-        if(type==="CS_MAWAROTO"){
-          hideAll();
-          $("#csPanel").style.display="flex";
-          renderCSTable();
-          toast("Menu: CS MAWAROTO");
-          return;
-        }
-
-        if(type==="CATATAN"){
-          hideAll();
-          $("#catatanPanel").style.display="flex";
-          renderCatatanList();
-          toast("Menu: Catatan Awal Masuk Kerja");
-          return;
-        }
-
-        $("#calendarPanel").style.display="flex";
-        $("#cutiPanel").style.display="none";
-        $("#baganPanel").style.display="none";
-        $("#barisKolomPanel").style.display="none";
-        $("#namaPanel").style.display="none";
-        $("#piketPanel").style.display="none";
-        $("#csPanel").style.display="none";
-        $("#catatanPanel").style.display="none";
-        renderCalendar();
-        toast(type==="ALL" ? "Mode: ALL" : "Filter: "+type);
+        $("#topTabs").querySelectorAll(".tab-btn").forEach(b=>{ b.classList.toggle("active", b.dataset.type===type); });
+        const hideAll = () => { $("#calendarPanel").style.display="none"; $("#cutiPanel").style.display="none"; $("#baganPanel").style.display="none"; $("#barisKolomPanel").style.display="none"; $("#namaPanel").style.display="none"; $("#piketPanel").style.display="none"; $("#csPanel").style.display="none"; $("#catatanPanel").style.display="none"; };
+        if(type==="CUTI"){ hideAll(); $("#cutiPanel").style.display="flex"; renderCutiTable(); toast("Mode: CUTI"); return; }
+        if(type==="BAGAN_VIEW"){ hideAll(); $("#baganPanel").style.display="flex"; renderBagan(); updateDeleteSeatUI(); toast("Mode: BAGAN"); return; }
+        if(type==="BARI_KOLOM"){ hideAll(); $("#barisKolomPanel").style.display="flex"; renderBarisKolomTable(); toast("Mode: EXCEL DIVISI (31 Baris, 4 Nama, 1 Tanggal)"); return; }
+        if(type==="NAMA"){ hideAll(); $("#namaPanel").style.display="flex"; renderNamaDatabase(); updateNamaToBaganSelect(); toast("Mode: DATABASE NAMA"); return; }
+        if(type==="PIKET"){ hideAll(); $("#piketPanel").style.display="flex"; renderPiketTable(); toast("Mode: PIKET"); return; }
+        if(type==="CS_MAWAROTO"){ hideAll(); $("#csPanel").style.display="flex"; renderCSTable(); toast("Menu: CS MAWAROTO"); return; }
+        if(type==="CATATAN"){ hideAll(); $("#catatanPanel").style.display="flex"; renderCatatanList(); toast("Menu: Catatan Awal Masuk Kerja"); return; }
+        $("#calendarPanel").style.display="flex"; $("#cutiPanel").style.display="none"; $("#baganPanel").style.display="none"; $("#barisKolomPanel").style.display="none"; $("#namaPanel").style.display="none"; $("#piketPanel").style.display="none"; $("#csPanel").style.display="none"; $("#catatanPanel").style.display="none"; renderCalendar(); toast(type==="ALL"?"Mode: ALL":"Filter: "+type);
       }
-
-      function initTopTabs(){
-        $("#topTabs").querySelectorAll(".tab-btn").forEach(btn=>{
-          btn.addEventListener("click", ()=> setActiveTab(btn.dataset.type));
-        });
-      }
-
-      const prev=()=>{view.setMonth(view.getMonth()-1); renderCalendar();};
-      const next=()=>{view.setMonth(view.getMonth()+1); renderCalendar();};
-      $("#prev").onclick=$("#prevMini").onclick=prev;
-      $("#next").onclick=$("#nextMini").onclick=next;
-      $("#todayBtn").onclick=()=>{view=new Date(); renderCalendar();};
-      $("#jumpYear").onclick=()=>{
-        const y=prompt("Masukkan tahun (contoh 2026):", view.getFullYear());
-        if(!y) return; view.setFullYear(Number(y)); renderCalendar();
-      };
-
-      $("#clearBlockedOnly").onclick=()=>{
-        if(isLocked){ toast("Terkunci. Tidak bisa hapus."); return; }
-        const md=getMonthData(view);
-        const prefix = md.y+"-"+String(md.m+1).padStart(2,"0");
-        let deletedDates = [];
-        Object.keys(store).forEach(k=>{ 
-          if(k.startsWith(prefix) && store[k].blocked) {
-            deletedDates.push(k);
-            delete store[k];
-          }
-        });
-        if(deletedDates.length === 0){ toast("Tidak ada tanggal blocked"); return; }
-        saveStore(); renderCalendar(); schedulePush();
-        logDelete('HAPUS_BLOCKED_DATE', `Tanggal: ${deletedDates.join(', ')}`);
-        toast(deletedDates.length + " tanggal blocked dihapus oleh " + userEmail);
-      };
-
-      function parseNamesFromPaste(text){
-        return text.split(/\r?\n|\t|,|;/g).map(s=>s.trim()).filter(Boolean);
-      }
-      function shuffle(arr){
-        const a=arr.slice();
-        for(let i=a.length-1;i>0;i--){
-          const j=Math.floor(Math.random()*(i+1));
-          [a[i],a[j]]=[a[j],a[i]];
-        }
-        return a;
-      }
+      function initTopTabs(){ $("#topTabs").querySelectorAll(".tab-btn").forEach(btn=>{ btn.addEventListener("click",()=>setActiveTab(btn.dataset.type)); }); }
+      const prev=()=>{view.setMonth(view.getMonth()-1); renderCalendar();}; const next=()=>{view.setMonth(view.getMonth()+1); renderCalendar();};
+      $("#prev").onclick=$("#prevMini").onclick=prev; $("#next").onclick=$("#nextMini").onclick=next; $("#todayBtn").onclick=()=>{view=new Date(); renderCalendar();};
+      $("#jumpYear").onclick=()=>{ const y=prompt("Masukkan tahun (contoh 2026):", view.getFullYear()); if(!y) return; view.setFullYear(Number(y)); renderCalendar(); };
+      $("#clearBlockedOnly").onclick=()=>{ if(isLocked){ toast("Terkunci. Tidak bisa hapus."); return; } const md=getMonthData(view); const prefix=md.y+"-"+String(md.m+1).padStart(2,"0"); let deletedDates=[]; Object.keys(store).forEach(k=>{ if(k.startsWith(prefix) && store[k].blocked){ deletedDates.push(k); delete store[k]; } }); if(deletedDates.length===0){ toast("Tidak ada tanggal blocked"); return; } saveStore(); renderCalendar(); schedulePush(); logDelete('HAPUS_BLOCKED_DATE',`Tanggal: ${deletedDates.join(', ')}`); toast(deletedDates.length+" tanggal blocked dihapus oleh ADMIN"); };
+      function parseNamesFromPaste(text){ return text.split(/\r?\n|\t|,|;/g).map(s=>s.trim()).filter(Boolean); }
+      function shuffle(arr){ const a=arr.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
       function normalizeName(n){ return (n||"").trim().toLowerCase(); }
-
-      function getCsJobForName(name){
-        const key = normalizeName(name);
-        const found = (csStore||[]).find(r => normalizeName(r.name) === key);
-        return found ? (found.job || "") : "";
-      }
-
+      function getCsJobForName(name){ const key=normalizeName(name); const found=(csStore||[]).find(r=>normalizeName(r.name)===key); return found?(found.job||""):""; }
       function bulkImportNames(){
         if(isLocked){ toast("Terkunci. Tidak bisa import."); return; }
-
-        const pasted = prompt(
-          "Paste nama dari Excel.\n\nMODE: PENCAR PERIODE\n- Periode 1: tgl 1–15\n- Periode 2: tgl 16–akhir\nNama sama otomatis beda periode.\nRandom 1 nama per tanggal.\nSkip BLOCKED.\n\nNote: Sekarang tersedia 10 slot per tanggal.",
-          ""
-        );
+        const pasted=prompt("Paste nama dari Excel.\n\nMODE: PENCAR PERIODE\n- Periode 1: tgl 1–15\n- Periode 2: tgl 16–akhir\nNama sama otomatis beda periode.\nRandom 1 nama per tanggal.\nSkip BLOCKED.\n\nNote: Sekarang tersedia 10 slot per tanggal.","");
         if(!pasted) return;
-
         let rawNames=parseNamesFromPaste(pasted);
         if(rawNames.length===0){ toast("Tidak ada nama terdeteksi"); return; }
-
-        const md = getMonthData(view);
-        const y = md.y, m = md.m, daysInMonth = md.daysInMonth;
-        for (let d = 1; d <= daysInMonth; d++) {
-            const key = ymd(new Date(y, m, d));
-            if (store[key]) {
-                saveToUndoStack();
-                break;
-            }
-        }
-
-        const toggleByName={}, namesP1=[], namesP2=[];
-        for(const nm of rawNames){
-          const key=normalizeName(nm);
-          if(!(key in toggleByName)) toggleByName[key]=0;
-          if(toggleByName[key]===0){ namesP1.push(nm); toggleByName[key]=1; }
-          else { namesP2.push(nm); toggleByName[key]=0; }
-        }
-
-        const listP1=shuffle(namesP1), listP2=shuffle(namesP2);
-        const md2=getMonthData(view);
-        const y2=md2.y, m2=md2.m, daysInMonth2=md2.daysInMonth;
-
-        let eligibleP1=[], eligibleP2=[];
-        for(let d=1; d<=daysInMonth2; d++){
-          const key=ymd(new Date(y2,m2,d));
-          ensureDay(key);
-          if(store[key]?.blocked) continue;
-          (d<=15?eligibleP1:eligibleP2).push(key);
-        }
-
-        function fillPeriod(namesList, eligibleKeys){
-          let idx=0, filled=0;
-          while(idx<namesList.length){
-            const roundKeys=shuffle(eligibleKeys);
-            let any=false;
-            for(const key of roundKeys){
-              if(idx>=namesList.length) break;
-              ensureDay(key);
-              const slot=store[key].entries.find(e=>!(e.name||"").trim());
-              if(slot){
-                slot.name=namesList[idx];
-                slot.role=getCsJobForName(namesList[idx]);
-                store[key].type="OFF";
-                store[key].off=true;
-                idx++; filled++; any=true;
-              }
-            }
-            if(!any) break;
-          }
-          return {filled:filled, remaining:namesList.length-idx};
-        }
-
-        const r1=fillPeriod(listP1, eligibleP1);
-        const r2=fillPeriod(listP2, eligibleP2);
-        saveStore(); renderCalendar();
-        schedulePush();
+        const md=getMonthData(view); const y=md.y,m=md.m,daysInMonth=md.daysInMonth;
+        for(let d=1;d<=daysInMonth;d++){ const key=ymd(new Date(y,m,d)); if(store[key]){ saveToUndoStack(); break; } }
+        const toggleByName={},namesP1=[],namesP2=[];
+        for(const nm of rawNames){ const key=normalizeName(nm); if(!(key in toggleByName)) toggleByName[key]=0; if(toggleByName[key]===0){ namesP1.push(nm); toggleByName[key]=1; } else{ namesP2.push(nm); toggleByName[key]=0; } }
+        const listP1=shuffle(namesP1),listP2=shuffle(namesP2);
+        const md2=getMonthData(view); const y2=md2.y,m2=md2.m,daysInMonth2=md2.daysInMonth;
+        let eligibleP1=[],eligibleP2=[];
+        for(let d=1;d<=daysInMonth2;d++){ const key=ymd(new Date(y2,m2,d)); ensureDay(key); if(store[key]?.blocked) continue; (d<=15?eligibleP1:eligibleP2).push(key); }
+        function fillPeriod(namesList,eligibleKeys){ let idx=0,filled=0; while(idx<namesList.length){ const roundKeys=shuffle(eligibleKeys); let any=false; for(const key of roundKeys){ if(idx>=namesList.length) break; ensureDay(key); const slot=store[key].entries.find(e=>!(e.name||"").trim()); if(slot){ slot.name=namesList[idx]; slot.role=getCsJobForName(namesList[idx]); store[key].type="OFF"; store[key].off=true; idx++; filled++; any=true; } } if(!any) break; } return {filled:filled,remaining:namesList.length-idx}; }
+        const r1=fillPeriod(listP1,eligibleP1); const r2=fillPeriod(listP2,eligibleP2);
+        saveStore(); renderCalendar(); schedulePush();
         toast("P1 masuk "+r1.filled+" | P2 masuk "+r2.filled+" | 10 slot per tanggal");
       }
       $("#bulkImport").onclick=bulkImportNames;
-
-      // ===== FITUR GESER KIRI-KANAN DENGAN SHIFT + MOUSE WHEEL =====
-      let isShiftPressed = false;
-      
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Shift') {
-          isShiftPressed = true;
-        }
-      });
-
-      document.addEventListener('keyup', (e) => {
-        if (e.key === 'Shift') {
-          isShiftPressed = false;
-        }
-      });
-
-      document.addEventListener('wheel', (e) => {
-        if (isShiftPressed) {
-          e.preventDefault();
-          
-          const activePanels = [
-            document.querySelector('.app'),
-            document.querySelector('#grid'),
-            document.querySelector('.bagan-wrap'),
-            document.querySelector('.cuti-table-wrap'),
-            document.querySelector('.cs-wrap'),
-            document.querySelector('.catatan-container'),
-            document.querySelector('.excel-table-container')
-          ];
-          
-          activePanels.forEach(panel => {
-            if (panel && panel.offsetParent !== null) {
-              panel.scrollLeft += e.deltaY * 2;
-            }
-          });
-          
-          toast(`📜 Geser ${e.deltaY > 0 ? 'kanan' : 'kiri'} (Shift + Scroll)`);
-        }
-      }, { passive: false });
-
-      // ===== HILANGKAN PESAN "CONSOLE ASSETS SHORTCUTS" =====
-      (function() {
-        const originalLog = console.log;
-        const originalWarn = console.warn;
-        const originalError = console.error;
-        const originalInfo = console.info;
-        
-        console.log = function(...args) {
-          const message = args.join(' ');
-          if (!message.includes('Console Assets Shortcuts') && 
-              !message.includes('assets shortcuts') &&
-              !message.includes('assets-shortcuts')) {
-            originalLog.apply(console, args);
-          }
-        };
-        
-        console.warn = function(...args) {
-          const message = args.join(' ');
-          if (!message.includes('Console Assets Shortcuts') &&
-              !message.includes('assets shortcuts') &&
-              !message.includes('assets-shortcuts')) {
-            originalWarn.apply(console, args);
-          }
-        };
-        
-        console.error = function(...args) {
-          const message = args.join(' ');
-          if (!message.includes('Console Assets Shortcuts') &&
-              !message.includes('assets shortcuts') &&
-              !message.includes('assets-shortcuts')) {
-            originalError.apply(console, args);
-          }
-        };
-        
-        console.info = function(...args) {
-          const message = args.join(' ');
-          if (!message.includes('Console Assets Shortcuts') &&
-              !message.includes('assets shortcuts') &&
-              !message.includes('assets-shortcuts')) {
-            originalInfo.apply(console, args);
-          }
-        };
-        
-        setTimeout(() => {
-          console.clear();
-          console.log("✅ MAWARTOTO - Jadwal Offday System");
-          console.log("🛡️  Sistem berjalan dengan baik");
-          console.log("📱 Gunakan Shift + Scroll mouse untuk geser horizontal");
-          console.log("↶ Gunakan Ctrl+Z untuk undo, Ctrl+Y untuk redo");
-          console.log("📊 Sekarang tersedia 10 slot per tanggal di offday");
-          console.log("💾 Data tidak terhapus otomatis - sistem penyimpanan permanen");
-          console.log("🔄 Tombol Reset Bagan tersedia di panel Bagan");
-        }, 1000);
-      })();
-
-      // =========================
-      // EFEK VISUAL BARU
-      // =========================
-
-      function createFallingStars() {
-        const container = document.createElement('div');
-        container.className = 'falling-stars';
-        
-        for (let i = 0; i < 15; i++) {
-          const star = document.createElement('div');
-          const isMoon = Math.random() > 0.7;
-          star.className = `falling-star ${isMoon ? 'moon' : 'star'}`;
-          
-          const size = isMoon ? 
-            Math.random() * 15 + 10 : 
-            Math.random() * 8 + 5;
-          
-          const left = Math.random() * 100;
-          const duration = Math.random() * 10 + 15;
-          const delay = Math.random() * 10;
-          
-          Object.assign(star.style, {
-            width: `${size}px`,
-            height: `${size}px`,
-            left: `${left}vw`,
-            top: '-100px',
-            animation: `fallingStar ${duration}s linear infinite`,
-            animationDelay: `${delay}s`,
-            opacity: '0'
-          });
-          
-          container.appendChild(star);
-        }
-        
-        document.body.appendChild(container);
-      }
-
-      function createFloatingRoses() {
-        const container = document.createElement('div');
-        container.className = 'floating-roses';
-        
-        for (let i = 0; i < 8; i++) {
-          const rose = document.createElement('div');
-          const sizes = ['large', 'medium', 'small'];
-          const size = sizes[i % 3];
-          
-          rose.className = `floating-rose ${size}`;
-          
-          const left = Math.random() * 100;
-          const duration = Math.random() * 10 + 20;
-          const delay = Math.random() * 15;
-          
-          Object.assign(rose.style, {
-            left: `${left}vw`,
-            animation: `floatRose ${duration}s linear infinite`,
-            animationDelay: `${delay}s`
-          });
-          
-          container.appendChild(rose);
-        }
-        
-        document.body.appendChild(container);
-      }
-
-      function createStarfield() {
-        const starsContainer = document.createElement('div');
-        starsContainer.className = 'starfield';
-        starsContainer.style.cssText = `
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: -3;
-        `;
-        
-        for (let i = 0; i < 100; i++) {
-          const star = document.createElement('div');
-          const size = Math.random() * 2 + 1;
-          const left = Math.random() * 100;
-          const top = Math.random() * 100;
-          const opacity = Math.random() * 0.5 + 0.2;
-          const twinkleDelay = Math.random() * 5;
-          
-          star.style.cssText = `
-            position: absolute;
-            width: ${size}px;
-            height: ${size}px;
-            background: rgba(255, 255, 255, ${opacity});
-            border-radius: 50%;
-            left: ${left}vw;
-            top: ${top}vh;
-            box-shadow: 0 0 ${size * 2}px rgba(255, 255, 255, ${opacity * 0.5});
-            animation: twinkle ${Math.random() * 3 + 2}s ease-in-out infinite;
-            animation-delay: ${twinkleDelay}s;
-          `;
-          
-          starsContainer.appendChild(star);
-        }
-        
-        document.body.appendChild(starsContainer);
-      }
-
-      const style = document.createElement('style');
-      style.textContent = `
-        @keyframes twinkle {
-          0%, 100% { opacity: 0.2; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.1); }
-        }
-      `;
-      document.head.appendChild(style);
-
-      function initVisualEffects() {
-        createStarfield();
-        createFloatingRoses();
-        createFallingStars();
-        
-        document.querySelectorAll('.panel').forEach(panel => {
-          panel.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-          panel.addEventListener('mouseenter', () => {
-            if (window.innerWidth > 768) {
-              panel.style.transform = 'translateY(-5px)';
-              panel.style.boxShadow = '0 25px 70px rgba(0, 0, 0, 0.6)';
-            }
-          });
-          
-          panel.addEventListener('mouseleave', () => {
-            panel.style.transform = 'translateY(0)';
-            panel.style.boxShadow = 'var(--shadow)';
-          });
-        });
-        
-        document.querySelectorAll('#topTabs .tab-btn').forEach(tab => {
-          tab.addEventListener('click', function(e) {
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.cssText = `
-              position: absolute;
-              border-radius: 50%;
-              background: rgba(255, 255, 255, 0.3);
-              transform: scale(0);
-              animation: ripple 0.6s linear;
-              width: ${size}px;
-              height: ${size}px;
-              left: ${x}px;
-              top: ${y}px;
-              pointer-events: none;
-            `;
-            
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-              ripple.remove();
-            }, 600);
-          });
-        });
-        
-        const rippleStyle = document.createElement('style');
-        rippleStyle.textContent = `
-          @keyframes ripple {
-            to {
-              transform: scale(4);
-              opacity: 0;
-            }
-          }
-        `;
-        document.head.appendChild(rippleStyle);
-      }
-
-      let resizeTimer;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          document.querySelectorAll('.falling-stars, .floating-roses, .starfield').forEach(el => {
-            if (el.parentNode) {
-              el.parentNode.removeChild(el);
-            }
-          });
-          
-          if (window.innerWidth > 480) {
-            initVisualEffects();
-          }
-        }, 250);
-      });
-
-      document.addEventListener('keydown', function(e) {
-        if ((e.ctrlKey || e.metaKey) && !e.altKey) {
-          if (e.key === 'z' || e.key === 'Z') {
-            e.preventDefault();
-            if (activeFilterType === "BAGAN_VIEW") {
-              if (e.shiftKey) {
-                redoBagan();
-              } else {
-                undoBagan();
-              }
-            } else {
-              if (e.shiftKey) {
-                redo();
-              } else {
-                undo();
-              }
-            }
-          } else if (e.key === 'y' || e.key === 'Y') {
-            e.preventDefault();
-            if (activeFilterType === "BAGAN_VIEW") {
-              redoBagan();
-            } else {
-              redo();
-            }
-          }
-        }
-      });
-
-      $("#undoBtn").onclick = () => {
-        if (activeFilterType === "BAGAN_VIEW") {
-          undoBagan();
-        } else {
-          undo();
-        }
-      };
-
-      $("#redoBtn").onclick = () => {
-        if (activeFilterType === "BAGAN_VIEW") {
-          redoBagan();
-        } else {
-          redo();
-        }
-      };
-
-      // =========================
-      // ✅ FUNGSI START APP (dipanggil setelah password benar dan email siap)
-      // =========================
+      let isShiftPressed=false;
+      document.addEventListener('keydown',(e)=>{ if(e.key==='Shift') isShiftPressed=true; });
+      document.addEventListener('keyup',(e)=>{ if(e.key==='Shift') isShiftPressed=false; });
+      document.addEventListener('wheel',(e)=>{ if(isShiftPressed){ e.preventDefault(); const activePanels=[document.querySelector('.app'),document.querySelector('#grid'),document.querySelector('.bagan-wrap'),document.querySelector('.cuti-table-wrap'),document.querySelector('.cs-wrap'),document.querySelector('.catatan-container'),document.querySelector('.excel-table-container')]; activePanels.forEach(panel=>{ if(panel&&panel.offsetParent!==null){ panel.scrollLeft+=e.deltaY*2; } }); toast(`📜 Geser ${e.deltaY>0?'kanan':'kiri'} (Shift + Scroll)`); } },{passive:false});
+      (function(){ const originalLog=console.log; const originalWarn=console.warn; const originalError=console.error; const originalInfo=console.info; console.log=function(...args){ const message=args.join(' '); if(!message.includes('Console Assets Shortcuts')&&!message.includes('assets shortcuts')&&!message.includes('assets-shortcuts')) originalLog.apply(console,args); }; console.warn=function(...args){ const message=args.join(' '); if(!message.includes('Console Assets Shortcuts')&&!message.includes('assets shortcuts')&&!message.includes('assets-shortcuts')) originalWarn.apply(console,args); }; console.error=function(...args){ const message=args.join(' '); if(!message.includes('Console Assets Shortcuts')&&!message.includes('assets shortcuts')&&!message.includes('assets-shortcuts')) originalError.apply(console,args); }; console.info=function(...args){ const message=args.join(' '); if(!message.includes('Console Assets Shortcuts')&&!message.includes('assets shortcuts')&&!message.includes('assets-shortcuts')) originalInfo.apply(console,args); }; setTimeout(()=>{ console.clear(); console.log("✅ MAWARTOTO - Jadwal Offday System"); console.log("🛡️  Sistem berjalan dengan baik"); console.log("📱 Gunakan Shift + Scroll mouse untuk geser horizontal"); console.log("↶ Gunakan Ctrl+Z untuk undo, Ctrl+Y untuk redo"); console.log("📊 Sekarang tersedia 10 slot per tanggal di offday"); console.log("💾 Data tidak terhapus otomatis - sistem penyimpanan permanen"); console.log("🔄 Tombol Reset Bagan tersedia di panel Bagan"); },1000); })();
+      function createFallingStars(){ const container=document.createElement('div'); container.className='falling-stars'; for(let i=0;i<15;i++){ const star=document.createElement('div'); const isMoon=Math.random()>0.7; star.className=`falling-star ${isMoon?'moon':'star'}`; const size=isMoon?Math.random()*15+10:Math.random()*8+5; const left=Math.random()*100; const duration=Math.random()*10+15; const delay=Math.random()*10; Object.assign(star.style,{width:`${size}px`,height:`${size}px`,left:`${left}vw`,top:'-100px',animation:`fallingStar ${duration}s linear infinite`,animationDelay:`${delay}s`,opacity:'0'}); container.appendChild(star); } document.body.appendChild(container); }
+      function createFloatingRoses(){ const container=document.createElement('div'); container.className='floating-roses'; for(let i=0;i<8;i++){ const rose=document.createElement('div'); const sizes=['large','medium','small']; const size=sizes[i%3]; rose.className=`floating-rose ${size}`; const left=Math.random()*100; const duration=Math.random()*10+20; const delay=Math.random()*15; Object.assign(rose.style,{left:`${left}vw`,animation:`floatRose ${duration}s linear infinite`,animationDelay:`${delay}s`}); container.appendChild(rose); } document.body.appendChild(container); }
+      function createStarfield(){ const starsContainer=document.createElement('div'); starsContainer.className='starfield'; starsContainer.style.cssText=`position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-3;`; for(let i=0;i<100;i++){ const star=document.createElement('div'); const size=Math.random()*2+1; const left=Math.random()*100; const top=Math.random()*100; const opacity=Math.random()*0.5+0.2; const twinkleDelay=Math.random()*5; star.style.cssText=`position:absolute;width:${size}px;height:${size}px;background:rgba(255,255,255,${opacity});border-radius:50%;left:${left}vw;top:${top}vh;box-shadow:0 0 ${size*2}px rgba(255,255,255,${opacity*0.5});animation:twinkle ${Math.random()*3+2}s ease-in-out infinite;animation-delay:${twinkleDelay}s;`; starsContainer.appendChild(star); } document.body.appendChild(starsContainer); }
+      const style=document.createElement('style'); style.textContent=`@keyframes twinkle{0%,100%{opacity:0.2;transform:scale(1);}50%{opacity:1;transform:scale(1.1);}}`; document.head.appendChild(style);
+      function initVisualEffects(){ createStarfield(); createFloatingRoses(); createFallingStars(); document.querySelectorAll('.panel').forEach(panel=>{ panel.style.transition='transform 0.3s ease, box-shadow 0.3s ease'; panel.addEventListener('mouseenter',()=>{ if(window.innerWidth>768){ panel.style.transform='translateY(-5px)'; panel.style.boxShadow='0 25px 70px rgba(0,0,0,0.6)'; } }); panel.addEventListener('mouseleave',()=>{ panel.style.transform='translateY(0)'; panel.style.boxShadow='var(--shadow)'; }); }); document.querySelectorAll('#topTabs .tab-btn').forEach(tab=>{ tab.addEventListener('click',function(e){ const ripple=document.createElement('span'); const rect=this.getBoundingClientRect(); const size=Math.max(rect.width,rect.height); const x=e.clientX-rect.left-size/2; const y=e.clientY-rect.top-size/2; ripple.style.cssText=`position:absolute;border-radius:50%;background:rgba(255,255,255,0.3);transform:scale(0);animation:ripple 0.6s linear;width:${size}px;height:${size}px;left:${x}px;top:${y}px;pointer-events:none;`; this.appendChild(ripple); setTimeout(()=>{ ripple.remove(); },600); }); }); const rippleStyle=document.createElement('style'); rippleStyle.textContent=`@keyframes ripple{to{transform:scale(4);opacity:0;}}`; document.head.appendChild(rippleStyle); }
+      let resizeTimer; window.addEventListener('resize',()=>{ clearTimeout(resizeTimer); resizeTimer=setTimeout(()=>{ document.querySelectorAll('.falling-stars,.floating-roses,.starfield').forEach(el=>{ if(el.parentNode) el.parentNode.removeChild(el); }); if(window.innerWidth>480) initVisualEffects(); },250); });
+      document.addEventListener('keydown',function(e){ if((e.ctrlKey||e.metaKey)&&!e.altKey){ if(e.key==='z'||e.key==='Z'){ e.preventDefault(); if(activeFilterType==="BAGAN_VIEW"){ if(e.shiftKey) redoBagan(); else undoBagan(); } else{ if(e.shiftKey) redo(); else undo(); } } else if(e.key==='y'||e.key==='Y'){ e.preventDefault(); if(activeFilterType==="BAGAN_VIEW") redoBagan(); else redo(); } } });
+      $("#undoBtn").onclick=()=>{ if(activeFilterType==="BAGAN_VIEW") undoBagan(); else undo(); };
+      $("#redoBtn").onclick=()=>{ if(activeFilterType==="BAGAN_VIEW") redoBagan(); else redo(); };
       function startApp() {
-        // TAMPILKAN KONTEN UTAMA
-        $('#appContent').style.display = 'grid';
-        
         updateLockUI();
         initTopTabs();
         renderWeekdays();
@@ -5716,140 +3578,37 @@
         setupExcelEvents();
         setupNamaEvents();
         startRealtimeSync();
-        setTimeout(initVisualEffects, 500);
-        setTimeout(() => {
-          dbRef.once("value").then(snap => {
-            if (!snap.exists()) pushNow();
-          }).catch(()=>{});
-        }, 500);
+        setTimeout(initVisualEffects,500);
+        setTimeout(()=>{ dbRef.once("value").then(snap=>{ if(!snap.exists()) pushNow(); }).catch(()=>{}); },500);
         updateUndoRedoButtons();
       }
-
-      // ===== PASSWORD PROTECTION LOGIC (SEKARANG DENGAN EMAIL SETELAH PASSWORD) =====
-      function checkSitePassword() {
-        const overlay = document.getElementById('passwordOverlay');
-        const submitBtn = document.getElementById('submitPassword');
-        const passwordInput = document.getElementById('sitePassword');
-        const errorMsg = document.getElementById('passwordError');
-        
-        const correctPassword = "mawar258159";
-        
-        function verify() {
-          const entered = passwordInput.value.trim();
-          if (entered === correctPassword) {
-            overlay.style.display = 'none';
-            // Setelah password benar, cek email
-            if (!userEmail) {
-              showEmailModal().then(() => {
-                startApp();
-              });
-            } else {
-              startApp();
-            }
-          } else {
-            errorMsg.style.display = 'block';
-            passwordInput.value = '';
-            passwordInput.focus();
-          }
-        }
-        
-        submitBtn.onclick = verify;
-        passwordInput.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') verify();
-        });
-      }
-
-      window.addEventListener("load", () => {
-        checkSitePassword();
-      });
+      window.addEventListener("load", () => { showInitialPasswordModal(); });
     })();
   </script>
 
   <script>
     document.addEventListener("contextmenu", e => e.preventDefault());
-
     document.onkeydown = function(e) {
-      if (e.keyCode === 123) {
-        alert("MAEN KALI AHHH");
-        return false;
-      }
-
-      if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
-        alert("MAEN KALI AHHH");
-        return false;
-      }
-
-      if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
-        alert("OWALAHHH");
-        return false;
-      }
-
-      if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
-        alert("EAA GAK NYERAH YAA");
-        return false;
-      }
-
-      if (e.ctrlKey && e.keyCode === 85) {
-        alert("WOPSS MASOKK DIAAA");
-        return false;
-      }
+      if (e.keyCode === 123) { alert("MAEN KALI AHHH"); return false; }
+      if (e.ctrlKey && e.shiftKey && e.keyCode === 73) { alert("MAEN KALI AHHH"); return false; }
+      if (e.ctrlKey && e.shiftKey && e.keyCode === 74) { alert("OWALAHHH"); return false; }
+      if (e.ctrlKey && e.shiftKey && e.keyCode === 67) { alert("EAA GAK NYERAH YAA"); return false; }
+      if (e.ctrlKey && e.keyCode === 85) { alert("WOPSS MASOKK DIAAA"); return false; }
     };
   </script>
-  
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    color: #000000ff;
-    background-color: #000000ff;
-    margin: 0px !important;
-cursor: url('https://mawartoto-is-back.b-cdn.net/kursor-mwtt.png'), auto;
-}
-
-#content .panel-heading center h2{
-  display: none;
-}
-
-#content .panel-heading:nth-child(1), #content .panel-heading:nth-child(2), #content .panel-heading:nth-child(3), #content .panel-heading:nth-child(4), #content .panel-heading:nth-child(5), #content .panel-heading:nth-child(6), #content .panel-heading:nth-child(7), #content .panel-heading:nth-child(8), #content .panel-heading:nth-child(9), #content .panel-heading:nth-child(10), #content .panel-heading:nth-child(11), #content .panel-heading:nth-child(12), #content .panel-heading:nth-child(13), #content .panel-heading:nth-child(14), #content .panel-heading:nth-child(15), #content .panel-heading:nth-child(14), #content .panel-heading:nth-child(16), #content .panel-heading:nth-child(14), #content .panel-heading:nth-child(17), #content .panel-heading:nth-child(18), #content .panel-heading:nth-child(19), #content .panel-heading:nth-child(20), #content .panel-heading:nth-child(21), #content .panel-heading:nth-child(22) {
-    margin-top: -60px;
-padding: 10px;
-  }
-
-
-.wbutton {
-width : 150px;
-margin-top : 13px;
-
-}
-.wrapper-category {
-background : transparent !important;
-margin-bottom: 30px !important;
-}
-.wrapper-category .btn-cat-spesial, .wrapper-category .btn-cat-provider {
-border-radius: 18px 0 !important;
-    margin: 0 15px !important;
-}
-
-li {
-color: white;
-}
-
-body {
-    background-color: #ffffff !important;
-    background-image: none !important;
-    background-repeat: no-repeat !important;
-    background-position: initial !important;
-    background-size: auto !important;
-    background-attachment: initial !important;
-    background-origin: padding-box !important;
-    background-clip: border-box !important;
-}
-
-.animatedcolor, .animatedcolor i
-{
-    -webkit-animation: color-change 1s infinite;
-}
+body { font-family: Arial, sans-serif; color: #000000ff; background-color: #000000ff; margin: 0px !important; cursor: url('https://mawartoto-is-back.b-cdn.net/kursor-mwtt.png'), auto; }
+#content .panel-heading center h2{ display: none; }
+#content .panel-heading:nth-child(1), #content .panel-heading:nth-child(2), #content .panel-heading:nth-child(3), #content .panel-heading:nth-child(4), #content .panel-heading:nth-child(5), #content .panel-heading:nth-child(6), #content .panel-heading:nth-child(7), #content .panel-heading:nth-child(8), #content .panel-heading:nth-child(9), #content .panel-heading:nth-child(10), #content .panel-heading:nth-child(11), #content .panel-heading:nth-child(12), #content .panel-heading:nth-child(13), #content .panel-heading:nth-child(14), #content .panel-heading:nth-child(15), #content .panel-heading:nth-child(14), #content .panel-heading:nth-child(16), #content .panel-heading:nth-child(14), #content .panel-heading:nth-child(17), #content .panel-heading:nth-child(18), #content .panel-heading:nth-child(19), #content .panel-heading:nth-child(20), #content .panel-heading:nth-child(21), #content .panel-heading:nth-child(22) { margin-top: -60px; padding: 10px; }
+.wbutton { width : 150px; margin-top : 13px; }
+.wrapper-category { background : transparent !important; margin-bottom: 30px !important; }
+.wrapper-category .btn-cat-spesial, .wrapper-category .btn-cat-provider { border-radius: 18px 0 !important; margin: 0 15px !important; }
+li { color: white; }
+body { background-color: #ffffff !important; background-image: none !important; background-repeat: no-repeat !important; background-position: initial !important; background-size: auto !important; background-attachment: initial !important; background-origin: padding-box !important; background-clip: border-box !important; }
+.animatedcolor, .animatedcolor i { -webkit-animation: color-change 1s infinite; }
 </style>
+
 <style>
   .popup-overlay {
     position: fixed;
@@ -5865,7 +3624,6 @@ body {
     z-index: 99999;
     animation: fadeIn 0.3s ease;
   }
-
   .popup-container {
     position: relative;
     width: 90%;
@@ -5875,180 +3633,37 @@ body {
     overflow: hidden;
     text-align: center;
     border: 1px solid rgba(212, 175, 55, 0.2);
-    box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.7),
-      0 0 20px rgba(212, 175, 55, 0.25);
-    animation: popupPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7),0 0 20px rgba(212,175,55,0.25);
+    animation: popupPop 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
   }
-
-  .popup-container::before {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-      135deg,
-      rgba(255,255,255,0) 45%,
-      rgba(255,215,0,0.12) 50%,
-      rgba(255,255,255,0) 55%
-    );
-    animation: shineDiagonal 5s linear infinite;
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  .popup-video {
-    width: 100%;
-    display: block;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-    background: #000;
-  }
-
-  .popup-footer {
-    position: relative;
-    z-index: 3;
-    font-size: 14px;
-    color: #eee;
-    padding: 18px 14px 22px;
-    line-height: 1.6;
-    font-family: 'Playfair Display', 'Segoe UI', serif;
-  }
-
-  .popup-footer span {
-    color: #d4af37;
-    font-weight: 700;
-    text-shadow: 0 0 6px rgba(212, 175, 55, 0.35);
-  }
-
-  .close-btn {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 34px;
-    height: 34px;
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(212, 175, 55, 0.35);
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-  }
-
-  .close-btn:hover {
-    background: rgba(212, 175, 55, 0.85);
-    transform: rotate(90deg);
-  }
-
-  .close-btn::before,
-  .close-btn::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 16px;
-    height: 2px;
-    background: #fff;
-    transform-origin: center;
-  }
-
-  .close-btn::before {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-
-  .close-btn::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
-  }
-
-  .gold-particle {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,215,0,0.85) 0%, rgba(212,175,55,0.35) 100%);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-    pointer-events: none;
-    z-index: 1;
-    animation: floatGold 8s infinite ease-in-out;
-  }
-
-  @keyframes popupPop {
-    0% {
-      opacity: 0;
-      transform: scale(0.5) translateY(30px);
-    }
-    70% {
-      opacity: 1;
-      transform: scale(1.05) translateY(-4px);
-    }
-    100% {
-      transform: scale(1) translateY(0);
-    }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes shineDiagonal {
-    0% {
-      transform: translate(-100%, -100%) rotate(30deg);
-    }
-    100% {
-      transform: translate(100%, 100%) rotate(30deg);
-    }
-  }
-
-  @keyframes floatGold {
-    0%, 100% {
-      transform: translateY(0) translateX(0);
-      opacity: 0;
-    }
-    15% {
-      opacity: 0.8;
-    }
-    85% {
-      opacity: 0.8;
-    }
-    100% {
-      transform: translateY(-120px) translateX(40px);
-      opacity: 0;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .popup-container {
-      width: 95%;
-      max-width: 350px;
-    }
-
-    .popup-footer {
-      font-size: 12px;
-      padding: 14px 10px 18px;
-    }
-
-    .close-btn {
-      width: 30px;
-      height: 30px;
-    }
-  }
+  .popup-container::before { content: ""; position: absolute; top: -100%; left: -100%; width: 200%; height: 200%; background: linear-gradient(135deg, rgba(255,255,255,0) 45%, rgba(255,215,0,0.12) 50%, rgba(255,255,255,0) 55%); animation: shineDiagonal 5s linear infinite; pointer-events: none; z-index: 2; }
+  .popup-video { width: 100%; display: block; border-bottom: 1px solid rgba(212,175,55,0.15); background: #000; }
+  .popup-footer { position: relative; z-index: 3; font-size: 14px; color: #eee; padding: 18px 14px 22px; line-height: 1.6; font-family: 'Playfair Display','Segoe UI',serif; }
+  .popup-footer span { color: #d4af37; font-weight: 700; text-shadow: 0 0 6px rgba(212,175,55,0.35); }
+  .close-btn { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; background: rgba(0,0,0,0.55); border: 1px solid rgba(212,175,55,0.35); border-radius: 50%; cursor: pointer; z-index: 10; transition: all 0.3s ease; }
+  .close-btn:hover { background: rgba(212,175,55,0.85); transform: rotate(90deg); }
+  .close-btn::before,.close-btn::after { content: ""; position: absolute; top: 50%; left: 50%; width: 16px; height: 2px; background: #fff; transform-origin: center; }
+  .close-btn::before { transform: translate(-50%,-50%) rotate(45deg); }
+  .close-btn::after { transform: translate(-50%,-50%) rotate(-45deg); }
+  .gold-particle { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(255,215,0,0.85) 0%, rgba(212,175,55,0.35) 100%); box-shadow: 0 0 10px rgba(255,215,0,0.5); pointer-events: none; z-index: 1; animation: floatGold 8s infinite ease-in-out; }
+  @keyframes popupPop { 0% { opacity:0; transform:scale(0.5) translateY(30px); } 70% { opacity:1; transform:scale(1.05) translateY(-4px); } 100% { transform:scale(1) translateY(0); } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes shineDiagonal { 0% { transform:translate(-100%,-100%) rotate(30deg); } 100% { transform:translate(100%,100%) rotate(30deg); } }
+  @keyframes floatGold { 0%,100% { transform:translateY(0) translateX(0); opacity:0; } 15% { opacity:0.8; } 85% { opacity:0.8; } 100% { transform:translateY(-120px) translateX(40px); opacity:0; } }
+  @media (max-width:480px){ .popup-container{width:95%;max-width:350px;} .popup-footer{font-size:12px;padding:14px 10px 18px;} .close-btn{width:30px;height:30px;} }
 </style>
 
 <div class="popup-overlay" id="popupOverlay">
   <div class="popup-container">
     <div class="close-btn" onclick="closePopup()"></div>
-
     <div class="gold-particle" style="width:10px;height:10px;top:15%;left:12%;animation-delay:0s;"></div>
     <div class="gold-particle" style="width:8px;height:8px;top:35%;left:88%;animation-delay:1.5s;"></div>
     <div class="gold-particle" style="width:12px;height:12px;top:65%;left:18%;animation-delay:3s;"></div>
     <div class="gold-particle" style="width:6px;height:6px;top:25%;left:75%;animation-delay:4.5s;"></div>
     <div class="gold-particle" style="width:9px;height:9px;top:80%;left:60%;animation-delay:6s;"></div>
-
     <video class="popup-video" autoplay muted loop playsinline>
       <source src="https://conplas.b-cdn.net/assets/images/geol.mp4" type="video/mp4">
-      Browser Anda tidak mendukung video.
     </video>
-
     <div class="popup-footer">
       Hallo Bosku, Selamat Datang Di Jadwal Offday MAWARTOTO<br>
       <span>&copy; COPYRIGHT 2026 MAWARTOTO</span>
@@ -6057,12 +3672,7 @@ body {
 </div>
 
 <script>
-  function closePopup() {
-    const popup = document.getElementById('popupOverlay');
-    if (popup) {
-      popup.style.display = 'none';
-    }
-  }
+  function closePopup() { const popup = document.getElementById('popupOverlay'); if (popup) popup.style.display = 'none'; }
 </script>
 </body>
 </html>
